@@ -1,0 +1,97 @@
+@import "colors";
+
+header {
+
+    .barrasuperior {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $primario;
+
+        p {
+            color: white;
+            padding: .5rem;
+            font-size: 1.6rem;
+        }
+    }
+
+    .barracentral {
+        
+        &__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                padding: 2rem 0;
+            }
+        }
+
+        &__buscador {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+
+            &__contacto {
+                display: flex;
+                gap: 1.6rem;
+
+                a {
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    font-size: 1.4rem;
+
+                    i {
+                        color: $primario;
+                    }
+                }
+            }
+
+            &__search {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1); 
+                border-radius: 1rem;
+                border: 1px solid #e2e2e2;
+                overflow: hidden;
+
+                .campobuscar {
+                    flex-grow: 1;
+                    height: 3rem;
+                    padding: 2rem 1rem;
+                    border: 0;
+
+                    &::placeholder {
+                        font-size: 1.4rem;
+                    }
+
+                    &:focus-visible {
+                        outline: 0;
+                        color: #b3b3b3;
+                    }
+                }
+
+                .botonbuscar {
+                    background: none;
+                    border: 0;
+                    border-left: 1px solid #e2e2e2;
+                    padding: 0 2rem;
+                    font-size: 1.4rem;
+                    color: gray;
+                    transition: background .3s, color .3s;
+                    height: 100%;
+
+                    &:hover {
+                        color: white;
+                        background: $primario;
+                    }
+                }
+            }
+        }
+    }
+}
