@@ -1,0 +1,66 @@
+@import "colors";
+
+.hero {
+
+    &__categorias {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        &__menu {
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            border-radius: 2rem;
+            overflow: hidden;
+            background: white;
+            border: .5rem solid white;
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1); 
+
+            .titulo {
+                font-size: 2rem;
+                font-weight: 600;
+                background: $primario;
+                color: white;
+                padding: 1rem 2rem;
+            }
+
+            .cat {
+                font-size: 1.5rem;
+                padding: 1.4rem 2rem;
+                border-bottom: 1px solid #e2e2e2;
+
+                &:last-child {
+                    margin-bottom: 1rem;
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__slider {
+        padding: 2rem 3rem;
+
+        .slider {
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1); 
+        }
+
+        .carousel-control-next, .carousel-control-prev {
+            width: 10%;
+        }
+
+        .carousel-control-next-icon, .carousel-control-prev-icon {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}
