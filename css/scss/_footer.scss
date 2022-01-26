@@ -1,0 +1,40 @@
+@import "colors";
+
+footer {
+    padding: 3rem 0;
+    border-top: 1px solid #e2e2e2;
+
+    .tarjetascorreos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .footerlogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        
+        img {
+            width: 150px;
+        }
+    }
+
+    .accesoalpanel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+
+        a {
+            cursor: pointer;
+            transition: color .3s;
+
+            &:hover {
+                color: $primario !important;
+            }
+        }
+    }
+}

@@ -28,6 +28,10 @@ p {
   background: #fd571b;
 }
 
+.bg_light {
+  background: #f7f7f7;
+}
+
 header .barrasuperior {
   width: 100%;
   display: -webkit-box;
@@ -256,5 +260,177 @@ header .barracentral__buscador__search .botonbuscar:hover {
 .hero__slider .carousel-control-next-icon, .hero__slider .carousel-control-prev-icon {
   width: 3rem;
   height: 3rem;
+}
+
+.productos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.productos .producto {
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 0.4rem solid #fd571b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .4rem;
+  padding-bottom: 1.4rem;
+  -webkit-box-shadow: 0px 0px 10px #b1b1b1;
+          box-shadow: 0px 0px 10px #b1b1b1;
+}
+
+.productos .producto__img {
+  max-width: 100%;
+}
+
+.productos .producto__titulo {
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+
+.productos .producto__precio {
+  color: #fd571b;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.productos .producto__agregar {
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid #797979;
+  margin-bottom: .6rem;
+  border-radius: .4rem;
+  letter-spacing: -1px;
+  width: 90%;
+  padding: .5rem 0;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.productos .producto__agregar:hover {
+  color: white;
+  border-color: #fd571b;
+  background: #fd571b;
+}
+
+.productos .producto__whatsapp {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0;
+  background: #25d366;
+  color: white;
+  border-radius: .4rem;
+  letter-spacing: -1px;
+  width: 90%;
+  padding: .5rem 0;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.productos .producto__whatsapp .fa-whatsapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
+}
+
+.productos .producto__whatsapp > p {
+  text-align: left;
+  line-height: 1;
+}
+
+.productos .producto__whatsapp:hover {
+  color: white;
+  border-color: #fd571b;
+  background: #fd571b;
+}
+
+footer {
+  padding: 3rem 0;
+  border-top: 1px solid #e2e2e2;
+}
+
+footer .tarjetascorreos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 2rem;
+}
+
+footer .footerlogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 2rem;
+}
+
+footer .footerlogo img {
+  width: 150px;
+}
+
+footer .accesoalpanel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.4rem;
+}
+
+footer .accesoalpanel a {
+  cursor: pointer;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+footer .accesoalpanel a:hover {
+  color: #fd571b !important;
 }
 /*# sourceMappingURL=style.css.map */
