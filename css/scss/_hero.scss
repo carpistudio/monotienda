@@ -51,7 +51,11 @@
         .slider {
             border-radius: 2rem;
             overflow: hidden;
-            box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1); 
+            box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+            
+            img {
+                width: 100%;
+            }
         }
 
         .carousel-control-next, .carousel-control-prev {

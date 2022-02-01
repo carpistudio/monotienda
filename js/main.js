@@ -11,7 +11,7 @@ let cantidad;
 // Función a ejecutarse cuando presionen "AGREGAR AL CARRITO"
 function agregarAlCarrito() {
     do {
-        cantidad = prompt("Ingrese la cantidad de productos que desea agregar. Para finalizar, ingrese 0.");
+        cantidad = prompt("Ingresá la cantidad de productos. Para finalizar, ingresá 0.");
 
         if(isNaN(cantidad) || cantidad == null || cantidad == "" || cantidad < 0) {
             alert("No ingresaste una cantidad válida, intentá nuevamente.");

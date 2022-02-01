@@ -56,9 +56,9 @@ header .barracentral__logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -251,6 +251,10 @@ header .barracentral__buscador__search .botonbuscar:hover {
   overflow: hidden;
   -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.hero__slider .slider img {
+  width: 100%;
 }
 
 .hero__slider .carousel-control-next, .hero__slider .carousel-control-prev {
