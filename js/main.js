@@ -6,21 +6,30 @@ alert("Cliqueá en AGREGAR AL CARRITO en el producto que quieras comprar");
 let carritoProductos = document.getElementById("carritoProductos");
 let carritoTotal = document.getElementById("carritoTotal");
 let costoTotal = 0;
+let cantidad;
 
 // Función a ejecutarse cuando presionen "AGREGAR AL CARRITO"
 function agregarAlCarrito() {
-    let cantidad = prompt("Ingrese la cantidad de productos que desea agregar.");
-    if(cantidad > 0) {
-        alert("Agregaste " + cantidad + " productos al carrito.");
-        document.getElementById("carrito").style.display = 'flex'; 
-        let textoCarrito = document.createTextNode("Agregado: " + cantidad);
-        carritoProductos.appendChild(textoCarrito);
-        carritoProductos.innerHTML += "<br>";
-        costoTotal = costoTotal + cantidad * 500;
-        carritoTotal.textContent = costoTotal;
-    } else {
-        alert("No ingresaste una cantidad válida, intentá nuevamente.");
-    }
+    do {
+        cantidad = prompt("Ingrese la cantidad de productos que desea agregar. Para finalizar, ingrese 0.");
+
+        if(isNaN(cantidad) || cantidad == null || cantidad == "" || cantidad < 0) {
+            alert("No ingresaste una cantidad válida, intentá nuevamente.");
+        }
+        else if(cantidad == 0) {
+            alert("Todos los productos fueron agregados al carrito. Podés seguir comprando.");
+        }
+        else {
+            alert("Agregaste " + cantidad + " productos al carrito.");
+            document.getElementById("carrito").style.display = 'flex'; 
+            let textoCarrito = document.createTextNode("Agregado: " + cantidad);
+            carritoProductos.appendChild(textoCarrito);
+            carritoProductos.innerHTML += "<br>";
+            costoTotal = costoTotal + cantidad * 500;
+            carritoTotal.textContent = costoTotal;
+        }
+        console.log(cantidad);
+    } while(cantidad != "0");
 }
 
 // Función para cerrar el carrito con la X
