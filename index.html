@@ -69,7 +69,7 @@
                             <img src="img/slider1.jpeg" class="" alt="...">
                           </div>
                           <div class="carousel-item">
-                            <img src="img/slider2.jpeg" class=" alt="...">
+                            <img src="img/slider2.jpeg" class="" alt="...">
                           </div>
                           <div class="carousel-item">
                             <img src="img/slider3.jpeg" class="" alt="...">
@@ -88,15 +88,23 @@
             </div>
         </div>
     </div>
+    <div id="carrito" class="bg_light">
+        <h4>Carrito</h4>
+        <div id="carritoProductos">
+
+        </div>
+        <h5>Total: $<span id="carritoTotal"></span></h5>
+        <div class="cerrar" onclick="cerrarPopup()"><i class="fas fa-times"></i></div>
+    </div>
     <div class="container-fluid bg_light">
         <div class="container">
             <div class="row">
                 <div class="col-md-9 offset-md-3 productos">
                     <div class="producto">
                         <img class="producto__img" src="img/fotoproducto.png">
-                        <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
+                        <h4 class="producto__titulo" id="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -106,7 +114,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -116,7 +124,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -126,7 +134,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -136,7 +144,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -146,7 +154,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -156,7 +164,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -166,7 +174,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -176,7 +184,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -186,7 +194,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -196,7 +204,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -206,7 +214,7 @@
                         <img class="producto__img" src="img/fotoproducto.png">
                         <h4 class="producto__titulo">PRODUCTO DE EJEMPLO</h4>
                         <h4 class="producto__precio">$500,00</h4>
-                        <div class="producto__agregar">AGREGAR AL CARRITO</div>
+                        <div onclick="agregarAlCarrito()" class="producto__agregar">AGREGAR AL CARRITO</div>
                         <div class="producto__whatsapp">
                             <i class="fab fa-whatsapp"></i>
                             <p>COMPRAR POR WHATSAPP</p>
@@ -238,9 +246,8 @@
             </div>
         </div>
     </footer>
-
-
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

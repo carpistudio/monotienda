@@ -262,6 +262,47 @@ header .barracentral__buscador__search .botonbuscar:hover {
   height: 3rem;
 }
 
+#carrito {
+  position: fixed;
+  z-index: 99;
+  bottom: 1rem;
+  right: 1rem;
+  width: 300px;
+  height: 300px;
+  padding: 3rem;
+  border: 0.3rem solid #fd571b;
+  border-radius: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.4rem;
+  overflow-y: auto;
+  -webkit-box-shadow: 0px 0px 10px #b1b1b1;
+          box-shadow: 0px 0px 10px #b1b1b1;
+  display: none;
+}
+
+#carrito h4 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fd571b;
+}
+
+#carrito h5 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fd571b;
+}
+
+#carrito .cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 .productos {
   display: -ms-grid;
   display: grid;
