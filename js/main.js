@@ -43,6 +43,17 @@ function botonAgregarClicked(event) {
 
   console.log(productos);
 
+  // TODAVÍA NO DESCUBRÍ CÓMO HACER PARA QUE FUNCIONE ASÍ JEJE
+  //for (cadaProducto in productos) {
+  //  carritoProductos.innerHTML = `
+  //    <div class="nuevoProducto">
+  //      <img class="carritoImagen" src="${productos[cadaProducto].imagen}">
+  //      <div class="carritoTitulo">${productos[cadaProducto].titulo}</div>
+  //      <div class="carritoPrecio">${productos[cadaProducto].precio}</div>
+  //    </div>
+  //  `;
+  //}
+
   precioTotal = precioTotal + productoPrecio;
   carritoTotal.textContent = precioTotal;
   
