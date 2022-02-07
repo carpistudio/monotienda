@@ -21,7 +21,7 @@ function botonAgregarClicked(event) {
   const productoImagen = producto.querySelector('.producto__img').src;
 
   class Producto {
-    constructor(titulo, precio, imagen) {
+    constructor(productoTitulo, productoPrecio, productoImagen) {
       this.titulo = productoTitulo;
       this.precio = productoPrecio;
       this.imagen = productoImagen;
@@ -33,26 +33,26 @@ function botonAgregarClicked(event) {
 
   carrito.style.display = 'flex'; 
 
-  carritoProductos.innerHTML += `
-    <div class="nuevoProducto">
-      <img class="carritoImagen" src="${productoImagen}">
-      <div class="carritoTitulo">${productoTitulo}</div>
-      <div class="carritoPrecio">${productoPrecio}</div>
-    </div>
-  `;
+ // carritoProductos.innerHTML += `
+ //   <div class="nuevoProducto">
+ //     <img class="carritoImagen" src="${productoImagen}">
+ //     <div class="carritoTitulo">${productoTitulo}</div>
+ //     <div class="carritoPrecio">${productoPrecio}</div>
+ //   </div>
+ // `;
 
-  console.log(productos);
+ // console.log(productos);
 
-  // TODAVÍA NO DESCUBRÍ CÓMO HACER PARA QUE FUNCIONE ASÍ JEJE
-  //for (cadaProducto in productos) {
-  //  carritoProductos.innerHTML = `
-  //    <div class="nuevoProducto">
-  //      <img class="carritoImagen" src="${productos[cadaProducto].imagen}">
-  //      <div class="carritoTitulo">${productos[cadaProducto].titulo}</div>
-  //      <div class="carritoPrecio">${productos[cadaProducto].precio}</div>
-  //    </div>
-  //  `;
-  //}
+//   TODAVÍA NO DESCUBRÍ CÓMO HACER PARA QUE FUNCIONE ASÍ JEJE
+  for (cadaProducto in productos) {
+    carritoProductos.innerHTML += `
+      <div class="nuevoProducto">
+        <img class="carritoImagen" src="${productos[cadaProducto].imagen}">
+        <div class="carritoTitulo">${productos[cadaProducto].titulo}</div>
+        <div class="carritoPrecio">${productos[cadaProducto].precio}</div>
+      </div>
+    `;
+  }
 
   precioTotal = precioTotal + productoPrecio;
   carritoTotal.textContent = precioTotal;
