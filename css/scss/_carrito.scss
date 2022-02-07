@@ -5,7 +5,7 @@
     z-index: 99;
     bottom: 1rem;
     right: 1rem;
-    width: 300px;
+    width: 500px;
     height: 300px;  
     padding: 3rem;
     border: .3rem solid $primario;
@@ -20,6 +20,7 @@
         font-size: 2.2rem;
         font-weight: 600;
         color: $primario;
+        margin-bottom: 2rem;
     }
 
     h5 {
@@ -34,5 +35,26 @@
         right: 1.5rem;
         font-size: 2rem;
         cursor: pointer;
+    }
+
+    .nuevoProducto {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+
+        .carritoImagen {
+            width: 20%;
+        }
+
+        .carritoTitulo {
+            font-size: 1.6rem;
+        }
+
+        .carritoPrecio {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
     }
 }

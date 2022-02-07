@@ -271,7 +271,7 @@ header .barracentral__buscador__search .botonbuscar:hover {
   z-index: 99;
   bottom: 1rem;
   right: 1rem;
-  width: 300px;
+  width: 500px;
   height: 300px;
   padding: 3rem;
   border: 0.3rem solid #fd571b;
@@ -291,6 +291,7 @@ header .barracentral__buscador__search .botonbuscar:hover {
   font-size: 2.2rem;
   font-weight: 600;
   color: #fd571b;
+  margin-bottom: 2rem;
 }
 
 #carrito h5 {
@@ -305,6 +306,30 @@ header .barracentral__buscador__search .botonbuscar:hover {
   right: 1.5rem;
   font-size: 2rem;
   cursor: pointer;
+}
+
+#carrito .nuevoProducto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+#carrito .nuevoProducto .carritoImagen {
+  width: 20%;
+}
+
+#carrito .nuevoProducto .carritoTitulo {
+  font-size: 1.6rem;
+}
+
+#carrito .nuevoProducto .carritoPrecio {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .productos {
