@@ -1,17 +1,22 @@
+// DEFINICIÓN DE VARIABLES PARA EL USO DEL HTML
 const carrito = document.getElementById('carrito');
 const botonesAgregar = document.querySelectorAll('.producto__agregar');
-let carritoTotal = document.getElementById("carritoTotal");
-let carritoProductos = document.getElementById("carritoProductos");
-let carritoCerrar = document.getElementById("carritoCerrar");
+const carritoTotal = document.getElementById("carritoTotal");
+const carritoProductos = document.getElementById("carritoProductos");
+const carritoCerrar = document.getElementById("carritoCerrar");
 
+// DEFINICIÓN DEL PRECIO TOTAL INICIAL PARA COMENZAR A CONTAR
 let precioTotal = 0;
 
+// AGREGAR EL EVENTO DE CLIC A TODOS LOS BOTONES DE AGREGAR AL CARRITO
 botonesAgregar.forEach((botonAgregar) => {
   botonAgregar.addEventListener('click', botonAgregarClicked);
 });
 
+// CREACIÓN DEL ARRAY DE PRODUCTOS PARA VER EN EL CARRITO
 const productos = [];
 
+// SE EJECUTA AL HACER CLIC EN ALGÚN BOTÓN DE AGREGAR AL CARRITO
 function botonAgregarClicked(event) {
   const boton = event.target;
   const producto = boton.closest('.producto');
@@ -33,17 +38,7 @@ function botonAgregarClicked(event) {
 
   carrito.style.display = 'flex'; 
 
- // carritoProductos.innerHTML += `
- //   <div class="nuevoProducto">
- //     <img class="carritoImagen" src="${productoImagen}">
- //     <div class="carritoTitulo">${productoTitulo}</div>
- //     <div class="carritoPrecio">${productoPrecio}</div>
- //   </div>
- // `;
-
- // console.log(productos);
-
-//   TODAVÍA NO DESCUBRÍ CÓMO HACER PARA QUE FUNCIONE ASÍ JEJE
+  carritoProductos.innerHTML = "";
   for (cadaProducto in productos) {
     carritoProductos.innerHTML += `
       <div class="nuevoProducto">
@@ -59,8 +54,8 @@ function botonAgregarClicked(event) {
   
 }
 
+// CERRAR EL CARRITO AL PRESIONAR LA X
 carritoCerrar.addEventListener('click', carritoCerrado);
-
 function carritoCerrado() {
   carrito.style.display = 'none'; 
 }
