@@ -4,7 +4,7 @@ const productos = [
   {
     sku: 1,
     titulo: 'Producto de ejemplo 1',
-    imagen: '../img/fotoproducto.png',
+    imagen: 'img/fotoproducto.png',
     precio: 100,
     stock: 3,
     cantidad: 0,
@@ -13,7 +13,7 @@ const productos = [
   {
     sku: 2,
     titulo: 'Producto de ejemplo 2',
-    imagen: '../img/fotoproducto.png',
+    imagen: 'img/fotoproducto.png',
     precio: 200,
     stock: 3,
     cantidad: 0,
@@ -22,7 +22,7 @@ const productos = [
   {
     sku: 3,
     titulo: 'Producto de ejemplo 3',
-    imagen: '../img/fotoproducto.png',
+    imagen: 'img/fotoproducto.png',
     precio: 300,
     stock: 3,
     cantidad: 0,
@@ -31,7 +31,7 @@ const productos = [
   {
     sku: 4,
     titulo: 'Producto de ejemplo 4',
-    imagen: '../img/fotoproducto.png',
+    imagen: 'img/fotoproducto.png',
     precio: 400,
     stock: 3,
     cantidad: 0,
@@ -89,7 +89,6 @@ function botonAgregarClicked(event) {
       productoAgregado.cantidad = productoAgregado.cantidad + 1;
       // ALGUNAS ACCIONES SOBRE EL PRECIO TOTAL
       precioTotal = precioTotal + productoAgregado.precio;
-      console.log(precioTotal);
       carritoTotal.textContent = precioTotal.toFixed(2);
     }
 
@@ -129,4 +128,32 @@ function carritoCerrado() {
   carrito.style.display = 'none'; 
 }
 
-console.log(productos);
+// *************** COMPRAR POR WHATSAPP ***************
+
+// SELECCIONAR TODOS LOS BOTONES DE COMPRAR POR WHATSAPP
+const botonesWhatsApp = document.querySelectorAll('.producto__whatsapp');
+
+// EVENTO DE CLICK PARA AGREGAR AL CARRITO
+botonesWhatsApp.forEach((botonWhatsApp) => {
+  botonWhatsApp.addEventListener('click', botonWhatsAppClicked);
+});
+
+// FUNCIÓN A EJECUTAR CUANDO SE HAGA CLIC EN COMPRAR POR WHATSAPP
+function botonWhatsAppClicked(event) {
+  //BUSCAR EL PRODUCTO EN EL ARRAY SEGÚN EL ID
+  const productoAgregadoID = event.target.closest('.producto').id;
+  const productoAgregado = productos.find(function(buscarProducto) {
+    return buscarProducto.sku == productoAgregadoID;
+  });
+
+  if(productoAgregado.stock > 0){
+    window.open(
+      "https://api.whatsapp.com/send?phone=++5491157667000&text=Hola,%20quiero%20comprar%20el%20producto%20" + productoAgregado.titulo + ",%20que%20tiene%20un%20precio%20de%20$" + productoAgregado.precio.toFixed(2) + ".%20Muchas%20gracias!",
+      "_blank" // <- This is what makes it open in a new window.
+    );
+  } 
+  else {
+    document.getElementById("noQuedaStockBoton").click();
+  }
+  
+}
