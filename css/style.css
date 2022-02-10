@@ -329,6 +329,10 @@ header .barracentral__buscador__search .botonbuscar:hover {
   font-size: 1.6rem;
 }
 
+#carrito .nuevoProducto .carritoCantidad {
+  font-size: 1.6rem;
+}
+
 #carrito .nuevoProducto .carritoPrecio {
   font-size: 1.8rem;
   font-weight: 600;
@@ -472,6 +476,19 @@ header .barracentral__buscador__search .botonbuscar:hover {
   color: white;
   border-color: #fd571b;
   background: #fd571b;
+}
+
+#noQuedaStock .modal-content {
+  background: #ff4b5c;
+  color: #900;
+}
+
+#noQuedaStock .modal-content .modal-header {
+  border-bottom-color: #900;
+}
+
+#noQuedaStock .modal-content .modal-header h5 {
+  font-size: 1.8rem;
 }
 
 footer {

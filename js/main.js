@@ -1,56 +1,125 @@
-// DEFINICIÓN DE VARIABLES PARA EL USO DEL HTML
-const carrito = document.getElementById('carrito');
+// DECLARAR TODOS LOS PRODUCTOS CON SUS DATOS
+
+const productos = [
+  {
+    sku: 1,
+    titulo: 'Producto de ejemplo 1',
+    imagen: '../img/fotoproducto.png',
+    precio: 100,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  },
+  {
+    sku: 2,
+    titulo: 'Producto de ejemplo 2',
+    imagen: '../img/fotoproducto.png',
+    precio: 200,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  },
+  {
+    sku: 3,
+    titulo: 'Producto de ejemplo 3',
+    imagen: '../img/fotoproducto.png',
+    precio: 300,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  },
+  {
+    sku: 4,
+    titulo: 'Producto de ejemplo 4',
+    imagen: '../img/fotoproducto.png',
+    precio: 400,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  }
+];
+
+// AGREGAR TODOS LOS PRODUCTOS EN EL DOCUMENTO
+const listadoProductos = document.getElementById("listadoProductos");
+
+for (const producto of productos) {
+  let contenedorProducto = document.createElement("div");
+  contenedorProducto.className = "producto";
+  contenedorProducto.id = producto.sku;
+  contenedorProducto.innerHTML = `
+  <img class="producto__img" src="${producto.imagen}">
+  <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
+  <h4 class="producto__precio">$<span>${producto.precio.toFixed(2)}</span></h4>
+  <div class="producto__agregar">AGREGAR AL CARRITO</div>
+  <div class="producto__whatsapp">
+    <i class="fab fa-whatsapp"></i>
+    <p>COMPRAR POR WHATSAPP</p>
+  </div>
+  `;
+  listadoProductos.appendChild(contenedorProducto);
+}
+
+// SELECCIONAR TODOS LOS BOTONES DE AGREGAR AL CARRITO
 const botonesAgregar = document.querySelectorAll('.producto__agregar');
-const carritoTotal = document.getElementById("carritoTotal");
-const carritoProductos = document.getElementById("carritoProductos");
-const carritoCerrar = document.getElementById("carritoCerrar");
 
-// DEFINICIÓN DEL PRECIO TOTAL INICIAL PARA COMENZAR A CONTAR
-let precioTotal = 0;
-
-// AGREGAR EL EVENTO DE CLIC A TODOS LOS BOTONES DE AGREGAR AL CARRITO
+// EVENTO DE CLICK PARA AGREGAR AL CARRITO
 botonesAgregar.forEach((botonAgregar) => {
   botonAgregar.addEventListener('click', botonAgregarClicked);
 });
 
-// CREACIÓN DEL ARRAY DE PRODUCTOS PARA VER EN EL CARRITO
-const productos = [];
+// DECLARACIÓN DEL PRECIO TOTAL PARA QUE INICIE EN CERO
+let precioTotal = 0;
 
-// SE EJECUTA AL HACER CLIC EN ALGÚN BOTÓN DE AGREGAR AL CARRITO
+// FUNCIÓN A EJECUTAR CUANDO SE HAGA CLIC EN AGREGAR AL CARRITO
 function botonAgregarClicked(event) {
-  const boton = event.target;
-  const producto = boton.closest('.producto');
-  
-  const productoTitulo = producto.querySelector('.producto__titulo').textContent;
-  const productoPrecio = parseInt(producto.querySelector('.producto__precio span').textContent);
-  const productoImagen = producto.querySelector('.producto__img').src;
+  //BUSCAR EL PRODUCTO EN EL ARRAY SEGÚN EL ID
+  const productoAgregadoID = event.target.closest('.producto').id;
+  const productoAgregado = productos.find(function(buscarProducto) {
+    return buscarProducto.sku == productoAgregadoID;
+  });
 
-  class Producto {
-    constructor(productoTitulo, productoPrecio, productoImagen) {
-      this.titulo = productoTitulo;
-      this.precio = productoPrecio;
-      this.imagen = productoImagen;
+  if(productoAgregado.stock > 0){
+    // AGREGAR EL PRODUCTO AL CARRITO
+    const carritoProductos = document.getElementById("carritoProductos");
+
+    function algunasAcciones() {
+      // ALGUNAS ACCIONES SOBRE EL STOCK Y LA CANTIDAD
+      productoAgregado.stock = productoAgregado.stock - 1;
+      productoAgregado.agregado = true;
+      productoAgregado.cantidad = productoAgregado.cantidad + 1;
+      // ALGUNAS ACCIONES SOBRE EL PRECIO TOTAL
+      precioTotal = precioTotal + productoAgregado.precio;
+      console.log(precioTotal);
+      carritoTotal.textContent = precioTotal.toFixed(2);
     }
-  }
 
-  let nuevoProducto = new Producto(productoTitulo, productoPrecio, productoImagen);
-  productos.push(nuevoProducto);
+    if(productoAgregado.agregado == false) {
+      algunasAcciones();
+      let nuevoProducto = document.createElement("div");
+      nuevoProducto.className = "nuevoProducto";
+      nuevoProducto.id = "agregado" + productoAgregado.sku;
+      nuevoProducto.innerHTML = `
+        <img class="carritoImagen" src="${productoAgregado.imagen}">
+        <div class="carritoTitulo">${productoAgregado.titulo}</div>
+        <div class="carritoCantidad">${productoAgregado.cantidad}</div>
+        <div class="carritoPrecio">$${productoAgregado.precio.toFixed(2)}</div>
+      `;
+      carritoProductos.appendChild(nuevoProducto);
+    }
+    else {
+      algunasAcciones();
+      let cantidadProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoCantidad");
+      cantidadProducto.textContent = productoAgregado.cantidad;
+
+      let precioProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoPrecio");
+      precioProducto.textContent = "$" + (productoAgregado.precio * productoAgregado.cantidad).toFixed(2);
+    }
+  } 
+  else {
+    document.getElementById("noQuedaStockBoton").click();
+  }
 
   carrito.style.display = 'flex'; 
-
-  carritoProductos.innerHTML = "";
-  for (cadaProducto in productos) {
-    carritoProductos.innerHTML += `
-      <div class="nuevoProducto">
-        <img class="carritoImagen" src="${productos[cadaProducto].imagen}">
-        <div class="carritoTitulo">${productos[cadaProducto].titulo}</div>
-        <div class="carritoPrecio">${productos[cadaProducto].precio}</div>
-      </div>
-    `;
-  }
-
-  precioTotal = precioTotal + productoPrecio;
-  carritoTotal.textContent = precioTotal;
   
 }
 
@@ -59,3 +128,5 @@ carritoCerrar.addEventListener('click', carritoCerrado);
 function carritoCerrado() {
   carrito.style.display = 'none'; 
 }
+
+console.log(productos);

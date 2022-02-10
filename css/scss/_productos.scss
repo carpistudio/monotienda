@@ -91,3 +91,18 @@
         }
     }
 }
+
+#noQuedaStock {
+    .modal-content {
+        background: #ff4b5c;
+        color: #900;
+
+        .modal-header {
+            border-bottom-color: #900;
+
+            h5 {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
