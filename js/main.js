@@ -295,12 +295,15 @@ function botonWhatsAppClicked(event) {
 
   if(productoAgregado.stock > 0){
     window.open(
-      "https://api.whatsapp.com/send?phone=++5491157667000&text=Hola,%20quiero%20comprar%20el%20producto%20" + productoAgregado.titulo + ",%20que%20tiene%20un%20precio%20de%20$" + productoAgregado.precio.toFixed(2) + ".%20Muchas%20gracias!",
+      "https://api.whatsapp.com/send?phone=++5491157667000&text=Hola,%20quiero%20comprar%20el%20producto%20*" + productoAgregado.titulo + "*,%20que%20tiene%20un%20precio%20de%20*$" + productoAgregado.precio.toFixed(2) + "*.%20Muchas%20gracias!",
       "_blank" // <- This is what makes it open in a new window.
     );
   } 
   else {
-    document.getElementById("noQuedaStockBoton").click();
+    window.open(
+      "https://api.whatsapp.com/send?phone=++5491157667000&text=Hola,%20quiero%20consultar%20por%20el%20producto%20*" + productoAgregado.titulo + "*.%20En%20la%20tienda%20figura%20como%20*agotado*%20.%20Muchas%20gracias!",
+      "_blank" // <- This is what makes it open in a new window.
+    );
   }
   
 }

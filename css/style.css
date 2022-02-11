@@ -674,6 +674,7 @@ header .barracentral__buscador__search .botonbuscar:hover {
   background: #c4c4c4;
   color: #686868;
   display: none;
+  cursor: not-allowed;
 }
 
 .productos .producto__sinStock:hover {
