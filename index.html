@@ -102,13 +102,25 @@
             </div>
         </div>
     </div>
-    <div id="carrito" class="bg_light">
-        <h4>Carrito</h4>
-        <div id="carritoProductos">
-
+    <div id="botonCarrito" class="cerrado">
+        <div class="numerito"><div><p id="numerito">0</p></div></div>
+        <i class="fas fas fa-shopping-basket"></i>
+    </div>
+    <div id="carrito" class="bg_light carrito cerrado">
+        <div class="carrito__titulo">
+            <h4>Carrito</h4>
+            <div class="cerrar" id="cerrarCarrito"><i class="fas fa-times"></i></div>
         </div>
-        <h5>Total: $<span id="carritoTotal"></span></h5>
-        <div class="cerrar" id="carritoCerrar"><i class="fas fa-times"></i></div>
+        <div class="carrito__productosTitulos">
+            <div class="carrito__productosTitulos--imagen">Imagen</div>
+            <div class="carrito__productosTitulos--titulo">Título</div>
+            <div class="carrito__productosTitulos--cantidad">Cant.</div>
+            <div class="carrito__productosTitulos--precio">Precio</div>
+        </div>
+        <div class="carrito__productos" id="carritoProductos"></div>
+        <div class="carrito__footer" id="finalizarCompra">
+            <h5>Finalizar compra: $<span id="carritoTotal"></span><i class="fas fa-arrow-right carritoFlecha"></i></h5>
+        </div>
     </div>
     <div class="container-fluid bg_light">
         <div class="container">

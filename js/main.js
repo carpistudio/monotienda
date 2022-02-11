@@ -36,6 +36,42 @@ const productos = [
     stock: 3,
     cantidad: 0,
     agregado: false
+  },
+  {
+    sku: 5,
+    titulo: 'Producto de ejemplo 5',
+    imagen: 'img/fotoproducto.png',
+    precio: 50,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  },
+  {
+    sku: 6,
+    titulo: 'Producto de ejemplo 6',
+    imagen: 'img/fotoproducto.png',
+    precio: 150,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  },
+  {
+    sku: 7,
+    titulo: 'Producto de ejemplo 7',
+    imagen: 'img/fotoproducto.png',
+    precio: 250,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
+  },
+  {
+    sku: 8,
+    titulo: 'Producto de ejemplo 8',
+    imagen: 'img/fotoproducto.png',
+    precio: 350,
+    stock: 3,
+    cantidad: 0,
+    agregado: false
   }
 ];
 
@@ -51,13 +87,34 @@ for (const producto of productos) {
   <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
   <h4 class="producto__precio">$<span>${producto.precio.toFixed(2)}</span></h4>
   <div class="producto__agregar">AGREGAR AL CARRITO</div>
+  <div class="producto__sinStock">SIN STOCK</div>
   <div class="producto__whatsapp">
     <i class="fab fa-whatsapp"></i>
-    <p>COMPRAR POR WHATSAPP</p>
+    <p>CONSULTAR POR WHATSAPP</p>
   </div>
   `;
   listadoProductos.appendChild(contenedorProducto);
 }
+
+
+// ABRIR EL CARRITO AL PRESIONAR LA X
+let botonCarrito = document.getElementById("botonCarrito");
+let carrito = document.getElementById("carrito");
+let cerrarCarrito = document.getElementById("cerrarCarrito");
+let numerito = document.getElementById("numerito");
+let numeritoInicial = 0;
+
+botonCarrito.addEventListener('click', botonCarritoClick);
+function botonCarritoClick() {
+  carrito.classList.remove("cerrado");
+  botonCarrito.classList.add("cerrado");
+};
+
+cerrarCarrito.addEventListener('click', cerrarCarritoClick);
+function cerrarCarritoClick() {
+  carrito.classList.add("cerrado");
+  botonCarrito.classList.remove("cerrado");
+};
 
 // SELECCIONAR TODOS LOS BOTONES DE AGREGAR AL CARRITO
 const botonesAgregar = document.querySelectorAll('.producto__agregar');
@@ -73,59 +130,151 @@ let precioTotal = 0;
 // FUNCIÓN A EJECUTAR CUANDO SE HAGA CLIC EN AGREGAR AL CARRITO
 function botonAgregarClicked(event) {
   //BUSCAR EL PRODUCTO EN EL ARRAY SEGÚN EL ID
-  const productoAgregadoID = event.target.closest('.producto').id;
-  const productoAgregado = productos.find(function(buscarProducto) {
-    return buscarProducto.sku == productoAgregadoID;
-  });
+  const productoAgregadoPadre = event.target.closest('.producto');
+  const productoAgregado = productos.find((buscarProducto) => buscarProducto.sku == productoAgregadoPadre.id);
 
-  if(productoAgregado.stock > 0){
-    // AGREGAR EL PRODUCTO AL CARRITO
-    const carritoProductos = document.getElementById("carritoProductos");
+  // AGREGAR EL PRODUCTO AL CARRITO
+  const carritoProductos = document.getElementById("carritoProductos");
 
-    function algunasAcciones() {
-      // ALGUNAS ACCIONES SOBRE EL STOCK Y LA CANTIDAD
-      productoAgregado.stock = productoAgregado.stock - 1;
-      productoAgregado.agregado = true;
-      productoAgregado.cantidad = productoAgregado.cantidad + 1;
-      // ALGUNAS ACCIONES SOBRE EL PRECIO TOTAL
-      precioTotal = precioTotal + productoAgregado.precio;
-      carritoTotal.textContent = precioTotal.toFixed(2);
-    }
+  function algunasAcciones() {
+    // ALGUNAS ACCIONES SOBRE EL STOCK Y LA CANTIDAD
+    productoAgregado.stock = productoAgregado.stock - 1;
+    productoAgregado.agregado = true;
+    productoAgregado.cantidad = productoAgregado.cantidad + 1;
 
-    if(productoAgregado.agregado == false) {
-      algunasAcciones();
-      let nuevoProducto = document.createElement("div");
-      nuevoProducto.className = "nuevoProducto";
-      nuevoProducto.id = "agregado" + productoAgregado.sku;
-      nuevoProducto.innerHTML = `
-        <img class="carritoImagen" src="${productoAgregado.imagen}">
-        <div class="carritoTitulo">${productoAgregado.titulo}</div>
-        <div class="carritoCantidad">${productoAgregado.cantidad}</div>
-        <div class="carritoPrecio">$${productoAgregado.precio.toFixed(2)}</div>
-      `;
-      carritoProductos.appendChild(nuevoProducto);
-    }
-    else {
-      algunasAcciones();
-      let cantidadProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoCantidad");
-      cantidadProducto.textContent = productoAgregado.cantidad;
-
-      let precioProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoPrecio");
-      precioProducto.textContent = "$" + (productoAgregado.precio * productoAgregado.cantidad).toFixed(2);
-    }
-  } 
-  else {
-    document.getElementById("noQuedaStockBoton").click();
+    // ALGUNAS ACCIONES SOBRE EL NUMERITO DEL CARRITO
+    numerito.classList.remove("shake")
+    numerito.offsetWidth
+    numerito.classList.add("shake")
+    numeritoInicial = numeritoInicial + 1;
+    numerito.textContent = numeritoInicial;
+    // ALGUNAS ACCIONES SOBRE EL PRECIO TOTAL
+    precioTotal = precioTotal + productoAgregado.precio;
+    carritoTotal.textContent = precioTotal.toFixed(2);
   }
 
-  carrito.style.display = 'flex'; 
+  if(productoAgregado.agregado == false) {
+    algunasAcciones();
+    let nuevoProducto = document.createElement("div");
+    nuevoProducto.className = "nuevoProducto";
+    nuevoProducto.id = "agregado" + productoAgregado.sku;
+    nuevoProducto.innerHTML = `
+      <img class="carritoImagen" src="${productoAgregado.imagen}">
+      <div class="carritoTitulo">${productoAgregado.titulo}</div>
+      <div class="carritoCantidad">
+        <div class="menos">-</div>
+        <div class="cant">${productoAgregado.cantidad}</div>
+        <div class="mas">+</div>
+      </div>
+      <div class="carritoPrecio">$${productoAgregado.precio.toFixed(2)}</div>
+    `;
+    carritoProductos.appendChild(nuevoProducto);
+  }
+  else {
+    algunasAcciones();    
+    let cantidadProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoCantidad .cant");
+    cantidadProducto.textContent = productoAgregado.cantidad;
+
+    let precioProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoPrecio");
+    precioProducto.textContent = "$" + (productoAgregado.precio * productoAgregado.cantidad).toFixed(2);
+  }
+
+  // REEMPLAZAR EL BOTÓN DE AGREGAR AL CARRITO POR SIN STOCK SI QUEDA EN 0
+  if(productoAgregado.stock == 0){
+    const productoSinStock = productoAgregadoPadre.children;
+    productoSinStock[3].style.display = "none"; 
+    productoSinStock[4].style.display = "block"; 
+  }
+
+  // MOSTRAR EL DIV DE CARRITO
+  if (carrito.classList.contains("cerrado")) {
+    botonCarrito.classList.remove("cerrado");
+  }
+
+  
+  // DEFINIR TODOS LOS BOTONES DE MAS Y MENOS QUE VAYAN APARECIENDO
+  window.botonesMas = document.querySelectorAll('.mas');
+  window.botonesMenos = document.querySelectorAll('.menos');
+
+  // EVENTO DE CLICK PARA LOS BOTONES DE MÁS
+  botonesMas.forEach((botonMas) => {
+    botonMas.addEventListener('click', botonMasClicked);
+  });
+
+  // EVENTO DE CLICK PARA LOS BOTONES DE MENOS
+  botonesMenos.forEach((botonMenos) => {
+    botonMenos.addEventListener('click', botonMenosClicked);
+  });
   
 }
 
-// CERRAR EL CARRITO AL PRESIONAR LA X
-carritoCerrar.addEventListener('click', carritoCerrado);
-function carritoCerrado() {
-  carrito.style.display = 'none'; 
+
+// *************** BOTONES MAS Y MENOS  ***************
+
+function botonMasClicked(event) {
+  //BUSCAR EL PRODUCTO EN EL ARRAY SEGÚN EL ID
+  const productoAgregadoPadre = event.target.closest('.nuevoProducto');
+  const productoAgregado = productos.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id);
+
+  if(productoAgregado.stock > 0) {
+
+    productoAgregado.stock = productoAgregado.stock - 1;
+    productoAgregado.agregado = true;
+    productoAgregado.cantidad = productoAgregado.cantidad + 1;
+
+    let cantidadProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoCantidad .cant");
+    cantidadProducto.textContent = productoAgregado.cantidad;
+
+    let precioProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoPrecio");
+    precioProducto.textContent = "$" + (productoAgregado.precio * productoAgregado.cantidad).toFixed(2);
+    
+    precioTotal = precioTotal + productoAgregado.precio;
+    carritoTotal.textContent = precioTotal.toFixed(2);
+
+    numeritoInicial = numeritoInicial + 1;
+    numerito.textContent = numeritoInicial;
+
+  }
+
+  // REEMPLAZAR EL BOTÓN DE AGREGAR AL CARRITO POR SIN STOCK SI QUEDA EN 0
+  if(productoAgregado.stock == 0){
+    const productoSinStock = document.getElementById(productoAgregado.sku).children;
+    productoSinStock[3].style.display = "none"; 
+    productoSinStock[4].style.display = "block"; 
+  }
+}
+
+function botonMenosClicked() {
+  //BUSCAR EL PRODUCTO EN EL ARRAY SEGÚN EL ID
+  const productoAgregadoPadre = event.target.closest('.nuevoProducto');
+  const productoAgregado = productos.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id);
+
+  if(productoAgregado.cantidad > 1) {
+
+    productoAgregado.stock = productoAgregado.stock + 1;
+    productoAgregado.agregado = true;
+    productoAgregado.cantidad = productoAgregado.cantidad - 1;
+
+    let cantidadProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoCantidad .cant");
+    cantidadProducto.textContent = productoAgregado.cantidad;
+
+    let precioProducto = document.querySelector("#agregado" + productoAgregado.sku + " .carritoPrecio");
+    precioProducto.textContent = "$" + (productoAgregado.precio * productoAgregado.cantidad).toFixed(2);
+    
+    precioTotal = precioTotal - productoAgregado.precio;
+    carritoTotal.textContent = precioTotal.toFixed(2);
+
+    numeritoInicial = numeritoInicial - 1;
+    numerito.textContent = numeritoInicial;
+
+  }
+
+  // REEMPLAZAR EL BOTÓN DE AGREGAR AL CARRITO POR SIN STOCK SI QUEDA EN 0
+  if(productoAgregado.stock > 0){
+    const productoSinStock = document.getElementById(productoAgregado.sku).children;
+    productoSinStock[3].style.display = "block"; 
+    productoSinStock[4].style.display = "none"; 
+  }
 }
 
 // *************** COMPRAR POR WHATSAPP ***************
@@ -142,9 +291,7 @@ botonesWhatsApp.forEach((botonWhatsApp) => {
 function botonWhatsAppClicked(event) {
   //BUSCAR EL PRODUCTO EN EL ARRAY SEGÚN EL ID
   const productoAgregadoID = event.target.closest('.producto').id;
-  const productoAgregado = productos.find(function(buscarProducto) {
-    return buscarProducto.sku == productoAgregadoID;
-  });
+  const productoAgregado = productos.find((buscarProducto) => buscarProducto.sku == productoAgregadoID);
 
   if(productoAgregado.stock > 0){
     window.open(

@@ -57,6 +57,19 @@
             }
         }
 
+        &__sinStock {
+            @extend .producto__agregar;
+            background: #c4c4c4;
+            color: #686868;
+            display: none;
+
+            &:hover {
+                background: #c4c4c4;
+                color: #686868;
+                border-color: #797979;
+            }
+        }
+
         &__whatsapp {
             font-size: 1.5rem;
             text-align: center;
