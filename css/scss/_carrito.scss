@@ -43,7 +43,7 @@
 
     &__productosTitulos {
         display: flex;
-        padding: 1rem;
+        padding: 2rem;
         padding-bottom: .5rem;
         font-size: 1.4rem;
         gap: 2rem;
@@ -64,7 +64,7 @@
         &--cantidad {
             width: 15%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         &--precio {

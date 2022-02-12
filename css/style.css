@@ -322,7 +322,7 @@ header .barracentral__buscador__search .botonbuscar:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
+  padding: 2rem;
   padding-bottom: .5rem;
   font-size: 1.4rem;
   gap: 2rem;
@@ -356,9 +356,9 @@ header .barracentral__buscador__search .botonbuscar:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .carrito__productosTitulos--precio {
