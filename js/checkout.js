@@ -19,9 +19,12 @@ for (const producto of productos) {
 }
 
 let checkoutTotal = document.getElementById("checkoutTotal");
+let botonConfirmarPrecioTotal = document.getElementById("botonConfirmarPrecioTotal");
 
 precioTotal = productos.reduce((suma, productoAgregado) => suma + (productoAgregado.precio * productoAgregado.cantidad), 0);
 checkoutTotal.textContent = "$" + precioTotal.toFixed(2);
+botonConfirmarPrecioTotal.textContent = "$" + precioTotal.toFixed(2);
+
 
 
 
