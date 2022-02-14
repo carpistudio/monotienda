@@ -66,9 +66,9 @@ function submitFormTusDetalles(event) {
   infoPersonal.className = "infoPersonal";
   infoPersonal.innerHTML = `
     <div class="infoPersonal__nombre">${formTusDetalles[0].value} ${formTusDetalles[1].value}</div>
-    <div class="infoPersonal__email">${formTusDetalles[2].value} - ${formTusDetalles[3].value}</div>
-    <div class="infoPersonal__pais">${formTusDetalles[4].value} - ${formTusDetalles[5].value} - ${formTusDetalles[6].value}</div>
-    <div class="infoPersonal__direccion">${formTusDetalles[7].value} ${formTusDetalles[8].value} - ${formTusDetalles[9].value}</div>
+    <div class="infoPersonal__email">${formTusDetalles[2].value} - ${formTusDetalles[3].value} - ${formTusDetalles[4].value}</div>
+    <div class="infoPersonal__pais">${formTusDetalles[5].value} ${formTusDetalles[6].value} - ${formTusDetalles[7].value}</div>
+    <div class="infoPersonal__direccion">${formTusDetalles[8].value} - ${formTusDetalles[9].value}</div>
   `;
   detalles__tusDetalles.appendChild(infoPersonal);
 
