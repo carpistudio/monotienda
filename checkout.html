@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Demotienda - Tienda virtual</title>
+    <script src="https://kit.fontawesome.com/5defac5f80.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="barrasuperior">
+            <p>HASTA 6 CUOTAS SIN INTERÉS!</p>
+        </div>
+        <div class="barracentral bg_light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 barracentral__logo">
+                        <a href="index.html"><img src="img/logo.png"></a>
+                    </div>
+                    <div class="col-md-8 barracentral__buscador">
+                        <div class="barracentral__buscador__contacto">
+                            <a href="tel:01123456789">
+                                <i class="fas fa-phone"></i> 011 2345 6789
+                            </a>
+                            <a href="https://wa.me/541138777684" target="_blank">
+                                <i class="fab fa-whatsapp"></i> 541138777684
+                            </a>
+                            <a href="mailto:usuariopruebanbx@neobix.com.ar">
+                                <i class="far fa-envelope-open"></i> usuariopruebanbx@neobix.com.ar
+                            </a>
+                            <a href="https://facebook.com/monotiendalatam" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com/monotienda.ar" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="barracentral__buscador__search prueba">
+                            <input type="text" class="campobuscar" placeholder="Buscar productos">
+                            <input type="submit" class="botonbuscar" value="🔎︎">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid bg_light">
+        <div class="row">
+            <div class="col-md-1 sinPadding">
+                <div class="pasos">
+                    <div class="pasos__tusDetalles">
+                        <div class="pasos__numerito">1</div>
+                        <p class="pasos__nombre">Tus detalles</p>
+                    </div>
+                    <div class="pasos__pago disabled">
+                        <div class="pasos__numerito">2</div>
+                        <p class="pasos__nombre">Pago</p>
+                    </div>
+                    <div class="pasos__pago disabled">
+                        <div class="pasos__numerito">3</div>
+                        <p class="pasos__nombre">Confirmación</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="principal">
+                    <div class="principal__tusDetalles">
+                        <h1 class="principal__titulo">Tus detalles</h1>
+                        <form class="principal__form">
+                            <div class="row g-2 principal__form__linea">
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutNombre" placeholder="Nombre">
+                                    <label for="checkoutNombre">Nombre</label>
+                                  </div>
+                                </div>
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutApellido" placeholder="Apellido">
+                                    <label for="checkoutApellido">Apellido</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row g-2 principal__form__linea">
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutPais" placeholder="País">
+                                    <label for="checkoutPais">País</label>
+                                  </div>
+                                </div>
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutProvincia" placeholder="Provincia">
+                                    <label for="checkoutProvincia">Provincia</label>
+                                  </div>
+                                </div>
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutCiudad" placeholder="Ciudad">
+                                    <label for="checkoutCiudad">Ciudad</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row g-2 principal__form__linea">
+                                <div class="col-md col-md-5">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutCalle" placeholder="Calle">
+                                    <label for="checkoutCalle">Calle</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-4">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutNumeroPisoDepto" placeholder="Número / Piso / Depto">
+                                    <label for="checkoutNumeroPisoDepto">Número / Piso / Depto</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-3">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutCodigoPostal" placeholder="Código Postal">
+                                    <label for="checkoutCodigoPostal">Código Postal</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row g-2 principal__form__linea">
+                                <div class="col-md col-md-7">
+                                  <div class="form-floating">
+                                    <input type="email" class="form-control" id="checkoutEmail" placeholder="E-mail">
+                                    <label for="checkoutEmail">E-mail</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-5">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutTelefono" placeholder="Teléfono">
+                                    <label for="checkoutTelefono">Teléfono</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="form-check checkDireccion">
+                                <input class="form-check-input" type="checkbox" value="" class="" id="enviarADireccionDiferente">
+                                <label class="form-check-label" for="enviarADireccionDiferente">
+                                  Enviar a una dirección diferente
+                                </label>
+                            </div>
+                            <div class="row g-2 principal__form__linea direccionDiferente">
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutPais" placeholder="País">
+                                    <label for="checkoutPais">País</label>
+                                  </div>
+                                </div>
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutProvincia" placeholder="Provincia">
+                                    <label for="checkoutProvincia">Provincia</label>
+                                  </div>
+                                </div>
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutCiudad" placeholder="Ciudad">
+                                    <label for="checkoutCiudad">Ciudad</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row g-2 principal__form__linea direccionDiferente">
+                                <div class="col-md col-md-5">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutCalle" placeholder="Calle">
+                                    <label for="checkoutCalle">Calle</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-4">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutNumeroPisoDepto" placeholder="Número / Piso / Depto">
+                                    <label for="checkoutNumeroPisoDepto">Número / Piso / Depto</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-3">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutCodigoPostal" placeholder="Código Postal">
+                                    <label for="checkoutCodigoPostal">Código Postal</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg checkoutBoton"><i class="fas fa-check"></i><h6>Confirmar datos</h6></button>
+                          </form>
+                    </div>
+                    <div class="principal__pago cerrado">
+                        <h1 class="principal__titulo">Pago</h1>
+                        <form class="principal__form formaDePago">
+                            <label class="form-check form-check-inline formaDePago__opcion" for="tarjeta">
+                              <input name="formaDePago" class="form-check-input" type="radio" id="tarjeta" value="option1">
+                              <label class="form-check-label" for="tarjeta">Tarjeta</label>
+                            </label>
+                            <label class="form-check form-check-inline formaDePago__opcion" for="mercadopago">
+                              <input name="formaDePago" class="form-check-input" type="radio" id="mercadopago" value="option2" disabled>
+                              <label class="form-check-label" for="mercadopago">MercadoPago</label>
+                            </label>
+                            <label class="form-check form-check-inline formaDePago__opcion" for="efectivo">
+                              <input name="formaDePago" class="form-check-input" type="radio" id="efectivo" value="option3" disabled>
+                              <label class="form-check-label" for="efectivo">Efectivo en la tienda</label>
+                            </label>
+                        </form>
+                        <form class="principal__form tarjeta">
+                            <div class="row g-2 principal__form__linea">
+                                <div class="col-md">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutTarjetaNombre" placeholder="Nombre en la tarjeta">
+                                    <label for="checkoutTarjetaNombre">Nombre en la tarjeta</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row g-2 principal__form__linea">
+                                <div class="col-md col-md-7">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutTarjetaNumero" placeholder="Número de la tarjeta">
+                                    <label for="checkoutTarjetaNumero">Número de la tarjeta</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-3">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutTarjetaExpiracion" placeholder="Expiración">
+                                    <label for="checkoutTarjetaExpiracion">Expiración</label>
+                                  </div>
+                                </div>
+                                <div class="col-md col-md-2">
+                                  <div class="form-floating">
+                                    <input type="text" class="form-control" id="checkoutTarjetaCVV" placeholder="CVV">
+                                    <label for="checkoutTarjetaCVV">CVV</label>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="botonesCheckout">
+                                <button type="submit" class="btn btn-primary btn-lg checkoutBoton atras"><i class="fas fa-arrow-left"></i><h6>Atrás</h6></button>
+                                <button type="submit" class="btn btn-primary btn-lg checkoutBoton"><i class="fas fa-lock"></i><h6>Confirmar pago de $1200.00</h6></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 sinPadding">
+                <div class="detalles">
+                    <div class="detalles__carrito detalles__secundario">
+                        <h4>Tu carrito</h4>
+                        <div class="checkoutCarrito" id="checkoutCarrito">
+                        </div>
+                        <div class="checkoutPrecioTotal">
+                            <h5>Total</h5>
+                            <h5 id="checkoutTotal">$1200.00</h5>
+                        </div>
+                    </div>
+                    <div class="detalles__tusDetalles detalles__secundario">
+                        <h4>Tus detalles</h4>
+                        <div class="infoPersonal">
+                            <div class="infoPersonal__nombre">Matías Coletta</div>
+                            <div class="infoPersonal__pais">Argentina - Buenos Aires - Escobar</div>
+                            <div class="infoPersonal__direccion">Italia 356 - 1625</div>
+                        </div>
+                    </div>
+                    <div class="detalles__envio detalles__secundario">
+                        <h4>Detalles de envío</h4>
+                        <div class="checkoutEnvio">
+                            <div class="checkoutEnvio__pais">Argentina - Buenos Aires - Escobar</div>
+                            <div class="checkoutEnvio__direccion">Italia 356 - 1625</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="tarjetascorreos">
+                    <div>
+                        <img src="img/footer-tarjetas.png">
+                    </div>
+                    <div>
+                        <img src="img/footer-correos.png">
+                    </div>
+                </div>
+                <div class="footerlogo">
+                    <a target="_blank" href="index.html">
+                        <img src="img/logo.png">
+                    </a>
+                </div>
+                <div class="accesoalpanel">
+                    <a><i class="fas fa-sign-in-alt"></i> Acceso al panel</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

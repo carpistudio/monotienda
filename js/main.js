@@ -78,16 +78,16 @@ function cerrarCarritoClick() {
 }
 
 function siEstaVacio() {
-    console.log(numerito);
-  if(numerito == "0") {
+  if(numerito == 0 || numerito == null) {
       carrito.classList.add("cerrado");
       botonCarrito.classList.add("cerrado");
   } else {
-      botonCarrito.classList.remove("cerrado");
+      if(carrito.classList.contains("cerrado")){
+        botonCarrito.classList.remove("cerrado");
+      }
   }
 }
 
-let productosAgregados = [];
 const carritoProductos = document.getElementById("carritoProductos");
 
 function agregarProductosEnCarrito() {
@@ -256,7 +256,6 @@ function botonMenosClicked(event) {
     siEstaVacio();
     localStorage.setItem("productos", JSON.stringify(productos));
   }
-  console.log(productos);
 }
 
 function botonBorrarClicked(event) {
@@ -288,6 +287,8 @@ function botonVaciarClicked() {
   }
   actualizarPrecioTotal();
   actualizarNumerito();
+  tieneStock();
+  noTieneStock();
   agregarProductosEnCarrito();
   siEstaVacio();
   localStorage.setItem("productos", JSON.stringify(productos));

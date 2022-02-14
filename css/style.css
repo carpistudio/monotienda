@@ -32,6 +32,10 @@ p {
   background: #f7f7f7;
 }
 
+.sinPadding {
+  padding: 0;
+}
+
 header .barrasuperior {
   width: 100%;
   display: -webkit-box;
@@ -756,6 +760,368 @@ header .barracentral__buscador__search .botonbuscar:hover {
 
 #noQuedaStock .modal-content .modal-header h5 {
   font-size: 1.8rem;
+}
+
+.pasos {
+  background: #fd571b;
+  padding: 6rem 0 4rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5rem;
+  height: 100%;
+  min-height: 100vh;
+  border-top-right-radius: 3rem;
+}
+
+.pasos > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .5rem;
+  cursor: pointer;
+}
+
+.pasos > div.disabled {
+  opacity: 50%;
+}
+
+.pasos__numerito {
+  background: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.4rem;
+  color: #fd571b;
+  font-weight: 800;
+}
+
+.pasos__nombre {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 400;
+}
+
+.principal {
+  padding: 4rem;
+}
+
+.principal .cerrado {
+  display: none;
+}
+
+.principal__titulo {
+  font-size: 4rem;
+}
+
+.principal__subtitulo {
+  margin-bottom: 2rem;
+}
+
+.principal__form.formaDePago {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.principal__form.formaDePago .formaDePago__opcion {
+  padding: 2rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  border: 1px solid #c4c4c4;
+  cursor: pointer;
+}
+
+.principal__form.formaDePago .formaDePago__opcion input[type="radio"] {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.principal__form.formaDePago .formaDePago__opcion label {
+  cursor: pointer;
+}
+
+.principal__form.tarjeta {
+  margin-top: 4rem;
+}
+
+.principal__form * {
+  font-size: 1.6rem;
+}
+
+.principal__form__linea {
+  margin-bottom: 2rem;
+}
+
+.principal__form__linea .col-md {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.principal__form__linea .col-md:first-child {
+  padding-left: 0;
+}
+
+.principal__form__linea .col-md:last-child {
+  padding-right: 0;
+}
+
+.principal__form .checkDireccion {
+  margin-bottom: 2rem;
+}
+
+.principal__form .checkDireccion input, .principal__form .checkDireccion label {
+  cursor: pointer;
+}
+
+.principal__form .direccionDiferente {
+  display: none;
+}
+
+.principal__form .form-floating input, .principal__form .form-floating label {
+  padding-left: 1.6rem;
+}
+
+.principal__form .form-floating input {
+  border-radius: 1.2rem;
+  line-height: 1;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.principal__form .form-floating label {
+  color: #7e7e7e;
+  line-height: 2;
+}
+
+.form-floating > .form-control, .form-floating > .form-select {
+  height: calc(5rem + 4px);
+}
+
+.detalles {
+  background: #fd571b;
+  padding: 4rem;
+  height: 100%;
+  min-height: 100vh;
+  border-top-left-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+}
+
+.detalles__secundario {
+  background: #e64a12;
+  border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+  color: white;
+  gap: 2rem;
+}
+
+.detalles__secundario > h4 {
+  font-size: 2rem;
+}
+
+.detalles__carrito .checkoutCarrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.detalles__carrito .checkoutCarrito .checkoutProducto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+.detalles__carrito .checkoutCarrito .checkoutProducto__imagen {
+  width: 15%;
+}
+
+.detalles__carrito .checkoutPrecioTotal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+}
+
+.detalles__carrito .checkoutPrecioTotal h5 {
+  font-size: 1.8rem;
+}
+
+.detalles__tusDetalles {
+  display: none;
+}
+
+.detalles__tusDetalles .infoPersonal__nombre {
+  font-size: 1.8rem;
+}
+
+.detalles__tusDetalles .infoPersonal__pais {
+  font-size: 1.4rem;
+}
+
+.detalles__tusDetalles .infoPersonal__direccion {
+  font-size: 1.4rem;
+}
+
+.detalles__envio {
+  display: none;
+}
+
+.detalles__envio .checkoutEnvio__pais {
+  font-size: 1.4rem;
+}
+
+.detalles__envio .checkoutEnvio__direccion {
+  font-size: 1.4rem;
+}
+
+.checkoutBoton {
+  background: #fd571b;
+  border-color: #fd571b;
+  padding: 1rem 2rem;
+  border-radius: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+}
+
+.checkoutBoton.atras {
+  background: #969696;
+  border-color: #969696;
+}
+
+.checkoutBoton h6 {
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin: 0;
+}
+
+.checkoutBoton i {
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
+  opacity: 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.checkoutBoton:hover {
+  background: black;
+  border-color: black;
+}
+
+.checkoutBoton:hover h6 {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.checkoutBoton:hover i {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.botonesCheckout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 4rem;
+}
+
+.botonesCheckout button {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 footer {
