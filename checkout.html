@@ -51,15 +51,15 @@
         <div class="row">
             <div class="col-md-1 sinPadding">
                 <div class="pasos">
-                    <div class="pasos__tusDetalles">
+                    <div class="pasos__tusDetalles" id="pasos__tusDetalles">
                         <div class="pasos__numerito">1</div>
                         <p class="pasos__nombre">Tus detalles</p>
                     </div>
-                    <div class="pasos__pago disabled">
+                    <div class="pasos__pago disabled" id="pasos__pago">
                         <div class="pasos__numerito">2</div>
                         <p class="pasos__nombre">Pago</p>
                     </div>
-                    <div class="pasos__pago disabled">
+                    <div class="pasos__confirmacion disabled" id="pasos__confirmacion">
                         <div class="pasos__numerito">3</div>
                         <p class="pasos__nombre">Confirmación</p>
                     </div>
@@ -67,19 +67,19 @@
             </div>
             <div class="col-md-7">
                 <div class="principal">
-                    <div class="principal__tusDetalles">
+                    <div class="principal__tusDetalles" id="principal__tusDetalles">
                         <h1 class="principal__titulo">Tus detalles</h1>
-                        <form class="principal__form">
+                        <form class="principal__form" id="tusDetalles">
                             <div class="row g-2 principal__form__linea">
                                 <div class="col-md">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutNombre" placeholder="Nombre">
+                                    <input type="text" class="form-control" id="checkoutNombre" placeholder="Nombre" required>
                                     <label for="checkoutNombre">Nombre</label>
                                   </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutApellido" placeholder="Apellido">
+                                    <input type="text" class="form-control" id="checkoutApellido" placeholder="Apellido" required>
                                     <label for="checkoutApellido">Apellido</label>
                                   </div>
                                 </div>
@@ -87,19 +87,19 @@
                             <div class="row g-2 principal__form__linea">
                                 <div class="col-md">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutPais" placeholder="País">
+                                    <input type="text" class="form-control" id="checkoutPais" placeholder="País" required>
                                     <label for="checkoutPais">País</label>
                                   </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutProvincia" placeholder="Provincia">
+                                    <input type="text" class="form-control" id="checkoutProvincia" placeholder="Provincia" required>
                                     <label for="checkoutProvincia">Provincia</label>
                                   </div>
                                 </div>
                                 <div class="col-md">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutCiudad" placeholder="Ciudad">
+                                    <input type="text" class="form-control" id="checkoutCiudad" placeholder="Ciudad" required>
                                     <label for="checkoutCiudad">Ciudad</label>
                                   </div>
                                 </div>
@@ -107,19 +107,19 @@
                             <div class="row g-2 principal__form__linea">
                                 <div class="col-md col-md-5">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutCalle" placeholder="Calle">
+                                    <input type="text" class="form-control" id="checkoutCalle" placeholder="Calle" required>
                                     <label for="checkoutCalle">Calle</label>
                                   </div>
                                 </div>
                                 <div class="col-md col-md-4">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutNumeroPisoDepto" placeholder="Número / Piso / Depto">
+                                    <input type="text" class="form-control" id="checkoutNumeroPisoDepto" placeholder="Número / Piso / Depto" required>
                                     <label for="checkoutNumeroPisoDepto">Número / Piso / Depto</label>
                                   </div>
                                 </div>
                                 <div class="col-md col-md-3">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutCodigoPostal" placeholder="Código Postal">
+                                    <input type="text" class="form-control" id="checkoutCodigoPostal" placeholder="Código Postal" required>
                                     <label for="checkoutCodigoPostal">Código Postal</label>
                                   </div>
                                 </div>
@@ -127,13 +127,13 @@
                             <div class="row g-2 principal__form__linea">
                                 <div class="col-md col-md-7">
                                   <div class="form-floating">
-                                    <input type="email" class="form-control" id="checkoutEmail" placeholder="E-mail">
+                                    <input type="email" class="form-control" id="checkoutEmail" placeholder="E-mail" required>
                                     <label for="checkoutEmail">E-mail</label>
                                   </div>
                                 </div>
                                 <div class="col-md col-md-5">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutTelefono" placeholder="Teléfono">
+                                    <input type="text" class="form-control" id="checkoutTelefono" placeholder="Teléfono" required>
                                     <label for="checkoutTelefono">Teléfono</label>
                                   </div>
                                 </div>
@@ -144,50 +144,52 @@
                                   Enviar a una dirección diferente
                                 </label>
                             </div>
-                            <div class="row g-2 principal__form__linea direccionDiferente">
-                                <div class="col-md">
-                                  <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutPais" placeholder="País">
-                                    <label for="checkoutPais">País</label>
+                            <div id="direccionDiferente" class="cerrado">
+                              <div class="row g-2 principal__form__linea direccionDiferente">
+                                  <div class="col-md">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="checkoutPais" placeholder="País">
+                                      <label for="checkoutPais">País</label>
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-md">
-                                  <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutProvincia" placeholder="Provincia">
-                                    <label for="checkoutProvincia">Provincia</label>
+                                  <div class="col-md">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="checkoutProvincia" placeholder="Provincia">
+                                      <label for="checkoutProvincia">Provincia</label>
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-md">
-                                  <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutCiudad" placeholder="Ciudad">
-                                    <label for="checkoutCiudad">Ciudad</label>
+                                  <div class="col-md">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="checkoutCiudad" placeholder="Ciudad">
+                                      <label for="checkoutCiudad">Ciudad</label>
+                                    </div>
                                   </div>
-                                </div>
-                            </div>
-                            <div class="row g-2 principal__form__linea direccionDiferente">
-                                <div class="col-md col-md-5">
-                                  <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutCalle" placeholder="Calle">
-                                    <label for="checkoutCalle">Calle</label>
+                              </div>
+                              <div class="row g-2 principal__form__linea direccionDiferente">
+                                  <div class="col-md col-md-5">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="checkoutCalle" placeholder="Calle">
+                                      <label for="checkoutCalle">Calle</label>
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-md col-md-4">
-                                  <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutNumeroPisoDepto" placeholder="Número / Piso / Depto">
-                                    <label for="checkoutNumeroPisoDepto">Número / Piso / Depto</label>
+                                  <div class="col-md col-md-4">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="checkoutNumeroPisoDepto" placeholder="Número / Piso / Depto">
+                                      <label for="checkoutNumeroPisoDepto">Número / Piso / Depto</label>
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-md col-md-3">
-                                  <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutCodigoPostal" placeholder="Código Postal">
-                                    <label for="checkoutCodigoPostal">Código Postal</label>
+                                  <div class="col-md col-md-3">
+                                    <div class="form-floating">
+                                      <input type="text" class="form-control" id="checkoutCodigoPostal" placeholder="Código Postal">
+                                      <label for="checkoutCodigoPostal">Código Postal</label>
+                                    </div>
                                   </div>
-                                </div>
+                              </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-lg checkoutBoton"><i class="fas fa-check"></i><h6>Confirmar datos</h6></button>
-                          </form>
+                        </form>
                     </div>
-                    <div class="principal__pago cerrado">
+                    <div class="principal__pago cerrado" id="principal__pago">
                         <h1 class="principal__titulo">Pago</h1>
                         <form class="principal__form formaDePago">
                             <label class="form-check form-check-inline formaDePago__opcion" for="tarjeta">
@@ -203,11 +205,11 @@
                               <label class="form-check-label" for="efectivo">Efectivo en la tienda</label>
                             </label>
                         </form>
-                        <form class="principal__form tarjeta">
+                        <form class="principal__form tarjeta" id="pagoTarjeta">
                             <div class="row g-2 principal__form__linea">
                                 <div class="col-md">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutTarjetaNombre" placeholder="Nombre en la tarjeta">
+                                    <input type="text" class="form-control" id="checkoutTarjetaNombre" placeholder="Nombre en la tarjeta" required>
                                     <label for="checkoutTarjetaNombre">Nombre en la tarjeta</label>
                                   </div>
                                 </div>
@@ -215,28 +217,35 @@
                             <div class="row g-2 principal__form__linea">
                                 <div class="col-md col-md-7">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutTarjetaNumero" placeholder="Número de la tarjeta">
+                                    <input type="text" class="form-control" id="checkoutTarjetaNumero" placeholder="Número de la tarjeta" required>
                                     <label for="checkoutTarjetaNumero">Número de la tarjeta</label>
                                   </div>
                                 </div>
                                 <div class="col-md col-md-3">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutTarjetaExpiracion" placeholder="Expiración">
+                                    <input type="text" class="form-control" id="checkoutTarjetaExpiracion" placeholder="Expiración" required>
                                     <label for="checkoutTarjetaExpiracion">Expiración</label>
                                   </div>
                                 </div>
                                 <div class="col-md col-md-2">
                                   <div class="form-floating">
-                                    <input type="text" class="form-control" id="checkoutTarjetaCVV" placeholder="CVV">
+                                    <input type="text" class="form-control" id="checkoutTarjetaCVV" placeholder="CVV" required>
                                     <label for="checkoutTarjetaCVV">CVV</label>
                                   </div>
                                 </div>
                             </div>
                             <div class="botonesCheckout">
-                                <button type="submit" class="btn btn-primary btn-lg checkoutBoton atras"><i class="fas fa-arrow-left"></i><h6>Atrás</h6></button>
+                                <button id="pago__atras" class="btn btn-primary btn-lg checkoutBoton atras"><i class="fas fa-arrow-left"></i><h6>Atrás</h6></button>
                                 <button type="submit" class="btn btn-primary btn-lg checkoutBoton"><i class="fas fa-lock"></i><h6>Confirmar pago de $1200.00</h6></button>
                             </div>
                         </form>
+                    </div>
+                    <div class="principal__confirmacion cerrado" id="principal__confirmacion">
+                      <h1 class="principal__titulo">Confirmación</h1>
+                      <i class="fas fa-check iconoConfirmacion"></i>
+                      <h2>¡Muchas gracias!</2>
+                      <h3>Recibimos tu compra y nos pondremos en contacto con vos para realizar el envío cuanto antes.</h3>
+                      <a href="index.html"><i class="fas fa-arrow-left"></i> Volver a la tienda</a>
                     </div>
                 </div>
             </div>
@@ -251,20 +260,11 @@
                             <h5 id="checkoutTotal">$1200.00</h5>
                         </div>
                     </div>
-                    <div class="detalles__tusDetalles detalles__secundario">
+                    <div class="detalles__tusDetalles detalles__secundario cerrado" id="detalles__tusDetalles">
                         <h4>Tus detalles</h4>
-                        <div class="infoPersonal">
-                            <div class="infoPersonal__nombre">Matías Coletta</div>
-                            <div class="infoPersonal__pais">Argentina - Buenos Aires - Escobar</div>
-                            <div class="infoPersonal__direccion">Italia 356 - 1625</div>
-                        </div>
                     </div>
-                    <div class="detalles__envio detalles__secundario">
+                    <div class="detalles__envio detalles__secundario cerrado" id="detalles__envio">
                         <h4>Detalles de envío</h4>
-                        <div class="checkoutEnvio">
-                            <div class="checkoutEnvio__pais">Argentina - Buenos Aires - Escobar</div>
-                            <div class="checkoutEnvio__direccion">Italia 356 - 1625</div>
-                        </div>
                     </div>
                 </div>
             </div>

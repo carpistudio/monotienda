@@ -835,16 +835,23 @@ header .barracentral__buscador__search .botonbuscar:hover {
   padding: 4rem;
 }
 
-.principal .cerrado {
-  display: none;
-}
-
 .principal__titulo {
   font-size: 4rem;
 }
 
 .principal__subtitulo {
   margin-bottom: 2rem;
+}
+
+.principal__confirmacion .iconoConfirmacion {
+  font-size: 8rem;
+  color: #fd571b;
+}
+
+.principal__confirmacion a {
+  color: #fd571b;
+  text-decoration: underline;
+  font-size: 1.6rem;
 }
 
 .principal__form.formaDePago {
@@ -921,10 +928,6 @@ header .barracentral__buscador__search .botonbuscar:hover {
 
 .principal__form .checkDireccion input, .principal__form .checkDireccion label {
   cursor: pointer;
-}
-
-.principal__form .direccionDiferente {
-  display: none;
 }
 
 .principal__form .form-floating input, .principal__form .form-floating label {
@@ -1027,32 +1030,33 @@ header .barracentral__buscador__search .botonbuscar:hover {
   font-size: 1.8rem;
 }
 
-.detalles__tusDetalles {
-  display: none;
-}
-
 .detalles__tusDetalles .infoPersonal__nombre {
   font-size: 1.8rem;
 }
 
 .detalles__tusDetalles .infoPersonal__pais {
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
 .detalles__tusDetalles .infoPersonal__direccion {
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
-.detalles__envio {
-  display: none;
+.detalles__tusDetalles .infoPersonal__email {
+  font-size: 1.4rem;
+  font-weight: 300;
 }
 
 .detalles__envio .checkoutEnvio__pais {
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
 .detalles__envio .checkoutEnvio__direccion {
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
 .checkoutBoton {
@@ -1070,6 +1074,11 @@ header .barracentral__buscador__search .botonbuscar:hover {
       -ms-flex-align: center;
           align-items: center;
   gap: .5rem;
+}
+
+.checkoutBoton:focus {
+  background: #fd571b;
+  border-color: #fd571b;
 }
 
 .checkoutBoton.atras {
@@ -1122,6 +1131,10 @@ header .barracentral__buscador__search .botonbuscar:hover {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.cerrado {
+  display: none;
 }
 
 footer {
