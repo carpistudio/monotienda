@@ -8,6 +8,12 @@
         align-items: center;
         position: relative;
 
+        .listadoCategoriasPadre {
+            position: sticky;
+            top: 0;
+            width: 100%;
+        }
+
         &__menu {
             display: flex;
             flex-direction: column;
@@ -17,6 +23,8 @@
             width: 100%;
             border-radius: 2rem;
             overflow: hidden;
+            overflow-y: auto;
+            max-height: 80vh;
             background: white;
             border: .5rem solid white;
             position: absolute;
@@ -33,11 +41,16 @@
             }
 
             .cat {
-                font-size: 1.5rem;
-                padding: 1.4rem 2rem;
-                border-bottom: 1px solid #e2e2e2;
 
-                &:last-child {
+                a {
+                    font-size: 1.5rem;
+                    padding: 1.4rem 2rem;
+                    border-bottom: 1px solid #e2e2e2;
+                    cursor: pointer;
+                    display: block;
+                }
+
+                &:last-child a {
                     margin-bottom: 1rem;
                     border-bottom: 0;
                 }

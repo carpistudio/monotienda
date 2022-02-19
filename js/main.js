@@ -2,59 +2,157 @@
 let productos = [
   {
     sku: 1,
-    titulo: 'Producto de ejemplo 1',
+    titulo: 'Samsung A10',
     imagen: 'img/fotoproducto.png',
-    precio: 100,
-    stock: 3,
+    precio: 7900,
+    stock: 2,
     cantidad: 0,
-    agregado: false
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
   },
   {
     sku: 2,
-    titulo: 'Producto de ejemplo 2',
+    titulo: 'Convector Eléctrico',
     imagen: 'img/fotoproducto.png',
-    precio: 200,
+    precio: 3200,
     stock: 3,
     cantidad: 0,
-    agregado: false
+    agregado: false,
+    categoria: 'Calefacción',
+    inCat: true
   },
   {
     sku: 3,
-    titulo: 'Producto de ejemplo 3',
+    titulo: 'Parlante JLB Go',
     imagen: 'img/fotoproducto.png',
-    precio: 300,
-    stock: 3,
+    precio: 1500,
+    stock: 6,
     cantidad: 0,
-    agregado: false
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
   },
   {
     sku: 4,
-    titulo: 'Producto de ejemplo 4',
+    titulo: 'Plancha Phillips',
     imagen: 'img/fotoproducto.png',
-    precio: 400,
+    precio: 3200,
     stock: 3,
     cantidad: 0,
-    agregado: false
-  }
+    agregado: false,
+    categoria: 'Electrodomésticos',
+    inCat: true
+  } 
 ];
 
+// AGREGAR TODOS LOS PRODUCTOS EN LA HOME
 const listadoProductos = document.getElementById("listadoProductos");
-for (const producto of productos) {
-  let contenedorProducto = document.createElement("div");
-  contenedorProducto.className = "producto";
-  contenedorProducto.id = producto.sku;
-  contenedorProducto.innerHTML = `
-  <img class="producto__img" src="${producto.imagen}">
-  <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
-  <h4 class="producto__precio">$<span>${producto.precio.toFixed(2)}</span></h4>
-  <div class="producto__agregar">AGREGAR AL CARRITO</div>
-  <div class="producto__sinStock">SIN STOCK</div>
-  <div class="producto__whatsapp">
-    <i class="fab fa-whatsapp"></i>
-    <p>CONSULTAR POR WHATSAPP</p>
-  </div>
+let botonesAgregar;
+
+function agregarProductosEnHome() {  
+  listadoProductos.innerHTML = "";
+  for (const producto of productos) {
+    if(producto.inCat == true) {
+      let contenedorProducto = document.createElement("div");
+      contenedorProducto.className = "producto";
+      contenedorProducto.id = producto.sku;
+      contenedorProducto.innerHTML = `
+      <img class="producto__img" src="${producto.imagen}">
+      <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
+      <h4 class="producto__precio">$<span>${producto.precio.toFixed(2)}</span></h4>
+      <div class="producto__agregar">AGREGAR AL CARRITO</div>
+      <div class="producto__sinStock">SIN STOCK</div>
+      <div class="producto__whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <p>CONSULTAR POR WHATSAPP</p>
+      </div>
+      `;
+      listadoProductos.appendChild(contenedorProducto);
+    }
+  }
+  asignarBotonesAgregar();
+  noTieneStock();
+}
+agregarProductosEnHome();
+
+// DECLARACIÓN DE TODAS LAS CATEGORÍAS
+let categorias = [
+  { id: 1, nombre: "Auriculares" },
+  { id: 2, nombre: "Calefacción" },
+  { id: 3, nombre: "Celulares" },
+  { id: 4, nombre: "Electrodomésticos" },
+  { id: 5, nombre: "Parlantes" },
+  { id: 6, nombre: "Smart TV" },
+  { id: 999, nombre: "Todos los productos" }
+];
+
+const listadoCategorias = document.getElementById("listadoCategorias");
+for (const categoria of categorias) {
+  let contenedorCategoria = document.createElement("li");
+  contenedorCategoria.className = "cat";
+  contenedorCategoria.id = "cat" + categoria.id;
+  contenedorCategoria.innerHTML = `
+    <a>${categoria.nombre}</a>
   `;
-  listadoProductos.appendChild(contenedorProducto);
+  listadoCategorias.appendChild(contenedorCategoria);
+};
+
+const botonesCategoria = document.querySelectorAll(".cat");
+botonesCategoria.forEach((botonCategoria) => {
+  botonCategoria.addEventListener('click', botonCategoriaClicked);
+});
+
+function botonCategoriaClicked(event) {
+  productos.forEach((producto) => {
+      producto.inCat = false;
+      if(producto.categoria == event.target.textContent) {
+          producto.inCat = true;
+      } else if(event.target.textContent == "Todos los productos") {
+        producto.inCat = true;
+      }
+  });
+  agregarProductosEnHome();
+  asignarBotonesAgregar();
+  noTieneStock();
+  listadoProductos.scrollIntoView();
+
+  
+  productoInCat = productos.find((buscarProducto) => buscarProducto.inCat == true);
+  if(productoInCat == undefined) {
+    let noHayCoincidencias = document.createElement("div");
+    noHayCoincidencias.className = "noHayCoincidencias";
+    noHayCoincidencias.innerHTML = `
+      <h4>No hay productos que coincidan con tu búsqueda.</h4>
+      <a class="verTodos">Ver todos</a>
+    `;
+    listadoProductos.appendChild(noHayCoincidencias);
+    asignarBotonVerTodos();
+  } else if(productoInCat && event.target.textContent != "Todos los productos") {
+    let nombreCategoria = document.createElement("h3");
+    nombreCategoria.className = "nombreCategoria";
+    nombreCategoria.innerHTML = `
+      ${event.target.textContent}
+    `;
+    listadoProductos.prepend(nombreCategoria);
+  }
+  
+  localStorage.setItem("productos", JSON.stringify(productos));
+};
+
+function asignarBotonVerTodos() {
+  let verTodos = document.querySelector(".verTodos");
+  verTodos.addEventListener("click", verTodosClicked);
+}
+
+function verTodosClicked() {
+  productos.forEach((producto) => {
+      producto.inCat = true;
+  });
+  agregarProductosEnHome();
+  asignarBotonesAgregar();
+  noTieneStock();
+  listadoProductos.scrollIntoView();
 }
 
 //*******************************************************/
@@ -114,10 +212,13 @@ function agregarProductosEnCarrito() {
   });
 };
 
-const botonesAgregar = document.querySelectorAll('.producto__agregar');
-botonesAgregar.forEach((botonAgregar) => {
-  botonAgregar.addEventListener('click', botonAgregarClicked);
-});
+function asignarBotonesAgregar() {
+  botonesAgregar = document.querySelectorAll('.producto__agregar');
+  botonesAgregar.forEach((botonAgregar) => {
+    botonAgregar.addEventListener('click', botonAgregarClicked);
+  });
+}
+asignarBotonesAgregar();
 
 const aumentarCantidad = () => { productoAgregado.cantidad = productoAgregado.cantidad + 1 };
 const reducirCantidad = () => { productoAgregado.cantidad = productoAgregado.cantidad - 1 };
@@ -126,7 +227,7 @@ const reducirStock = () => { productoAgregado.stock = productoAgregado.stock - 1
 
 function noTieneStock() {
   productos.forEach((productoAgregado) => {
-    if(productoAgregado.stock == 0){
+    if(productoAgregado.stock == 0 && productoAgregado.inCat == true){
       productoSinStock = document.getElementById(productoAgregado.sku).children;
       productoSinStock[3].style.display = "none"; 
       productoSinStock[4].style.display = "block"; 
@@ -136,7 +237,7 @@ function noTieneStock() {
 
 function tieneStock() {
   productos.forEach((productoAgregado) => {
-    if(productoAgregado.stock > 0){
+    if(productoAgregado.stock > 0 && productoAgregado.inCat == true){
       productoSinStock = document.getElementById(productoAgregado.sku).children;
       productoSinStock[3].style.display = "block"; 
       productoSinStock[4].style.display = "none"; 
@@ -280,11 +381,11 @@ let botonVaciar = document.getElementById("vaciarCarrito");
 botonVaciar.addEventListener('click', botonVaciarClicked);
 
 function botonVaciarClicked() {
-  for (const producto of productos) {
+  productos.forEach((producto) => {
     producto.stock = producto.stock + producto.cantidad;
     producto.cantidad = 0;
     producto.agregado = false;
-  }
+  })
   actualizarPrecioTotal();
   actualizarNumerito();
   tieneStock();
@@ -298,6 +399,11 @@ numerito = localStorage.getItem("numerito");
 if(numerito > 0) {
   productos = localStorage.getItem("productos");
   productos = JSON.parse(productos);
+  productos.forEach((producto) => {
+    producto.inCat = true;
+  });
+
+  agregarProductosEnHome();
   agregarProductosEnCarrito();
   actualizarNumerito();
   actualizarPrecioTotal();
