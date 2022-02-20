@@ -1,6 +1,13 @@
 productos = localStorage.getItem("productos");
 productos = JSON.parse(productos);
 
+Number.prototype.toLocaleFixed = function(n) {
+  return this.toLocaleString(undefined, {
+    minimumFractionDigits: n,
+    maximumFractionDigits: n
+  });
+};
+
 let checkoutCarrito = document.getElementById("checkoutCarrito");
 
 for (const producto of productos) {
@@ -9,10 +16,12 @@ for (const producto of productos) {
       checkoutProducto.className = "checkoutProducto";
       checkoutProducto.id = "checkoutProducto" + producto.sku;
       checkoutProducto.innerHTML = `
-        <img class="checkoutProducto__imagen" src="${producto.imagen}">
+        <div class="checkoutProducto__imagen">
+          <img src="${producto.imagen}">
+        </div>
         <div class="checkoutProducto__titulo">${producto.titulo}</div>
         <div class="checkoutProducto__cantidad">${producto.cantidad}</div>
-        <div class="checkoutProducto__precio">$${(producto.precio * producto.cantidad).toFixed(2)}</div>
+        <div class="checkoutProducto__precio">$${(producto.precio * producto.cantidad).toLocaleFixed(2)}</div>
       `;
       checkoutCarrito.appendChild(checkoutProducto);
   };
@@ -22,8 +31,8 @@ let checkoutTotal = document.getElementById("checkoutTotal");
 let botonConfirmarPrecioTotal = document.getElementById("botonConfirmarPrecioTotal");
 
 precioTotal = productos.reduce((suma, productoAgregado) => suma + (productoAgregado.precio * productoAgregado.cantidad), 0);
-checkoutTotal.textContent = "$" + precioTotal.toFixed(2);
-botonConfirmarPrecioTotal.textContent = "$" + precioTotal.toFixed(2);
+checkoutTotal.textContent = "$" + precioTotal.toLocaleFixed(2);
+botonConfirmarPrecioTotal.textContent = "$" + precioTotal.toLocaleFixed(2);
 
 
 

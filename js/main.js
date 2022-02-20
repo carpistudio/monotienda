@@ -146,7 +146,7 @@ let productos = [
   {
     sku: 13,
     titulo: 'Auriculares Bluetooth F9 Tws Mejor Que Xiaomi Earpods',
-    imagen: 'img/calefaccion/3.webp',
+    imagen: 'img/auriculares/3.webp',
     precio: 2766,
     stock: 3,
     cantidad: 0,
@@ -326,6 +326,13 @@ shuffle(productos);
 const listadoProductos = document.getElementById("listadoProductos");
 let botonesAgregar;
 
+Number.prototype.toLocaleFixed = function(n) {
+  return this.toLocaleString(undefined, {
+    minimumFractionDigits: n,
+    maximumFractionDigits: n
+  });
+};
+
 function agregarProductosEnHome() {  
   listadoProductos.innerHTML = "";
   for (const producto of productos) {
@@ -338,7 +345,7 @@ function agregarProductosEnHome() {
         <img src="${producto.imagen}">
       </div>
       <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
-      <h4 class="producto__precio">$<span>${producto.precio.toFixed(2)}</span></h4>
+      <h4 class="producto__precio">$<span>${producto.precio.toLocaleFixed(2)}</span></h4>
       <div class="producto__agregar">AGREGAR AL CARRITO</div>
       <div class="producto__sinStock">SIN STOCK</div>
       <div class="producto__whatsapp">
@@ -435,6 +442,10 @@ function verTodosClicked() {
   asignarBotonesAgregar();
   noTieneStock();
   listadoProductos.scrollIntoView();
+  
+  botonesCategoria.forEach((botonCategoria) => {
+    botonCategoria.children[0].classList.remove("active");
+  });
 };
 
 let buscadorTop = document.querySelector("#buscadorTop");
@@ -540,7 +551,7 @@ function agregarProductosEnCarrito() {
             <div class="cant">${productoAgregado.cantidad}</div>
             <div class="mas">+</div>
           </div>
-          <div class="carritoPrecio">$${(productoAgregado.precio * productoAgregado.cantidad).toFixed(2)}</div>
+          <div class="carritoPrecio">$${(productoAgregado.precio * productoAgregado.cantidad).toLocaleFixed(2)}</div>
           <div class="carritoBorrar"><i class="fas fa-trash-alt"></i></div>
         `;
         carritoProductos.appendChild(nuevoProducto);
@@ -624,11 +635,11 @@ function actualizarNumerito() {
 
 let precioTotal = 0;
 const carritoTotal = document.getElementById("carritoTotal");
-carritoTotal.textContent = precioTotal.toFixed(2);
+carritoTotal.textContent = precioTotal.toLocaleFixed(2);
 
 function actualizarPrecioTotal() {
   precioTotal = productos.reduce((suma, productoAgregado) => suma + (productoAgregado.precio * productoAgregado.cantidad), 0);
-  carritoTotal.textContent = precioTotal.toFixed(2);
+  carritoTotal.textContent = precioTotal.toLocaleFixed(2);
   
   localStorage.setItem("precioTotal", precioTotal);
 };

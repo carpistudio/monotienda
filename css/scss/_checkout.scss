@@ -191,13 +191,24 @@
 
             .checkoutProducto {
                 display: grid;
-                grid-template-columns: 1fr 4fr 1fr 2fr;
+                grid-template-columns: 2fr 6fr 1fr 3fr;
                 align-items: center;
-                gap: .5rem;
+                justify-items: center;
+                gap: 1rem;
                 font-size: 1.4rem;
 
                 &__imagen {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     width: 100%;
+                    aspect-ratio: 1;
+                    background: white;
+
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
                 }
             }
         }
