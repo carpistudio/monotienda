@@ -95,21 +95,31 @@
         max-height: 60vh;
 
         .nuevoProducto {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 7fr 2fr 4fr 1fr;
+            gap: 1rem;
 
             .carritoImagen {
-                width: 15%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                aspect-ratio: 1;
+                background: white;
+
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
             }
 
             .carritoTitulo {
-                width: 50%;
                 font-size: 1.6rem;
+                display: flex;
+                align-items: center;
             }
 
             .carritoCantidad {
-                width: 15%;
                 font-size: 1.6rem;
                 display: flex;
                 justify-content: center;
@@ -124,13 +134,17 @@
             }
 
             .carritoPrecio {
-                width: 20%;
                 font-size: 1.8rem;
                 font-weight: 600;
+                display: flex;
+                align-items: center;
             }
 
             .carritoBorrar {
-                width: 5%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 i {
                     color: #ca1c1c;
                     font-size: 1.2rem;

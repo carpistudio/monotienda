@@ -5,6 +5,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
     padding: 3rem;
+    min-height: 70vh;
     
     .nombreCategoria {
         grid-area: 1 / 1 / span 1 / span 4;
@@ -31,16 +32,28 @@
         border-radius: 2rem;
         overflow: hidden;
         border: .4rem solid $primario;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr;
         align-items: center;
+        justify-content: center;
+        justify-items: center;
         gap: .4rem;
         padding-bottom: 1.4rem;
         box-shadow: 0px 0px 10px #b1b1b1;
 
         &__img {
-            max-width: 100%;
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: flex-start;
+            background: white;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
         }
 
         &__titulo {

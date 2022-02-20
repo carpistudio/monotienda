@@ -2,10 +2,10 @@
 let productos = [
   {
     sku: 1,
-    titulo: 'Samsung A10',
-    imagen: 'img/fotoproducto.png',
-    precio: 7900,
-    stock: 2,
+    titulo: 'Samsung Galaxy A12 64 GB azul 4 GB RAM',
+    imagen: 'img/celulares/1.webp',
+    precio: 33999,
+    stock: 3,
     cantidad: 0,
     agregado: false,
     categoria: 'Celulares',
@@ -13,9 +13,75 @@ let productos = [
   },
   {
     sku: 2,
-    titulo: 'Convector Eléctrico',
-    imagen: 'img/fotoproducto.png',
-    precio: 3200,
+    titulo: 'Samsung Galaxy S21 Fe Blanco 5g',
+    imagen: 'img/celulares/2.webp',
+    precio: 124999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
+  },
+  {
+    sku: 3,
+    titulo: 'Quantum UP32 Dual SIM 32 GB negro 1 GB RAM',
+    imagen: 'img/celulares/3.webp',
+    precio: 12020,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
+  },
+  {
+    sku: 4,
+    titulo: 'Samsung Galaxy S20 FE 128 GB cloud navy 6 GB RAM',
+    imagen: 'img/celulares/4.webp',
+    precio: 94999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
+  },
+  {
+    sku: 5,
+    titulo: 'Samsung Galaxy A12 64 GB azul 4 GB RAM',
+    imagen: 'img/celulares/5.webp',
+    precio: 33999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
+  },
+  {
+    sku: 6,
+    titulo: 'Samsung Galaxy M12 (5000 mAh) Dual SIM 128 GB black 4 GB RAM',
+    imagen: 'img/celulares/6.webp',
+    precio: 39999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
+  },
+  {
+    sku: 7,
+    titulo: 'LG K62 128 GB sky blue 4 GB RAM',
+    imagen: 'img/celulares/7.webp',
+    precio: 35999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Celulares',
+    inCat: true
+  },
+  {
+    sku: 8,
+    titulo: 'Calefactor eléctrico convector Magiclick C1009 blanco 220V',
+    imagen: 'img/calefaccion/1.webp',
+    precio: 5138,
     stock: 3,
     cantidad: 0,
     agregado: false,
@@ -23,28 +89,238 @@ let productos = [
     inCat: true
   },
   {
-    sku: 3,
-    titulo: 'Parlante JLB Go',
-    imagen: 'img/fotoproducto.png',
-    precio: 1500,
-    stock: 6,
+    sku: 9,
+    titulo: 'Calefactor Tiro Balanceado Emege Euro 2000c Multigas 2019',
+    imagen: 'img/calefaccion/2.webp',
+    precio: 20990,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Calefacción',
+    inCat: true
+  },
+  {
+    sku: 9,
+    titulo: 'Calefactor eléctrico convector Peabody PE-VC10 blanco 220V',
+    imagen: 'img/calefaccion/3.webp',
+    precio: 8833,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Calefacción',
+    inCat: true
+  },
+  {
+    sku: 10,
+    titulo: 'Calefactor eléctrico convector Peabody PE-VC10 negro 220V',
+    imagen: 'img/calefaccion/4.webp',
+    precio: 8833,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Calefacción',
+    inCat: true
+  },
+  {
+    sku: 11,
+    titulo: 'Auriculares in-ear inalámbricos Samsung Galaxy Buds2 black',
+    imagen: 'img/auriculares/1.webp',
+    precio: 15499,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Auriculares',
+    inCat: true
+  },
+  {
+    sku: 12,
+    titulo: 'Auriculares inalámbricos Sony WH-CH510 negro',
+    imagen: 'img/auriculares/2.webp',
+    precio: 4999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Auriculares',
+    inCat: true
+  },
+  {
+    sku: 13,
+    titulo: 'Auriculares Bluetooth F9 Tws Mejor Que Xiaomi Earpods',
+    imagen: 'img/calefaccion/3.webp',
+    precio: 2766,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Auriculares',
+    inCat: true
+  },
+  {
+    sku: 14,
+    titulo: 'Auriculares in-ear inalámbricos Xiaomi Redmi AirDots 2 negro',
+    imagen: 'img/auriculares/4.webp',
+    precio: 2439,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Auriculares',
+    inCat: true
+  },
+  {
+    sku: 15,
+    titulo: 'Auriculares in-ear inalámbricos Samsung Galaxy Buds2 black',
+    imagen: 'img/auriculares/5.webp',
+    precio: 15499,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Auriculares',
+    inCat: true
+  },
+  {
+    sku: 16,
+    titulo: 'Parlante Spica Sp-2065 Bluetooth Portatil Led Rgb Inalambric',
+    imagen: 'img/parlantes/1.webp',
+    precio: 1924,
+    stock: 3,
     cantidad: 0,
     agregado: false,
     categoria: 'Parlantes',
     inCat: true
   },
   {
-    sku: 4,
-    titulo: 'Plancha Phillips',
-    imagen: 'img/fotoproducto.png',
-    precio: 3200,
+    sku: 17,
+    titulo: 'Parlante Philco DJP10 portátil con bluetooth negro 220V',
+    imagen: 'img/parlantes/2.webp',
+    precio: 7699,
     stock: 3,
     cantidad: 0,
     agregado: false,
-    categoria: 'Electrodomésticos',
+    categoria: 'Parlantes',
     inCat: true
-  } 
+  },
+  {
+    sku: 18,
+    titulo: 'Parlante Edifier R2000DB con bluetooth wood finish',
+    imagen: 'img/parlantes/3.webp',
+    precio: 46990,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
+  },
+  {
+    sku: 19,
+    titulo: 'Parlante Spica SP-4408 con bluetooth',
+    imagen: 'img/parlantes/4.webp',
+    precio: 8999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
+  },
+  {
+    sku: 20,
+    titulo: 'Parlante HP DHS-2101 black',
+    imagen: 'img/parlantes/5.webp',
+    precio: 3701,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
+  },
+  {
+    sku: 21,
+    titulo: 'Parlante Spica SP 3312TM con bluetooth 220V',
+    imagen: 'img/parlantes/6.webp',
+    precio: 9999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
+  },
+  {
+    sku: 22,
+    titulo: 'Parlante Crown Mustang CMA-802BT con bluetooth negro',
+    imagen: 'img/parlantes/7.webp',
+    precio: 12021,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
+  },
+  {
+    sku: 23,
+    titulo: 'Parlante Aliver Iggy Go portátil con bluetooth negro',
+    imagen: 'img/parlantes/8.webp',
+    precio: 6999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Parlantes',
+    inCat: true
+  },
+  {
+    sku: 24,
+    titulo: 'Smart TV JVC LT-32DA3125 LED HD 32" 220V',
+    imagen: 'img/smarttv/1.webp',
+    precio: 28999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Smart TV',
+    inCat: true
+  },
+  {
+    sku: 25,
+    titulo: 'Smart TV Noblex DK32X5000 LED HD 32" 220V',
+    imagen: 'img/smarttv/2.webp',
+    precio: 33499,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Smart TV',
+    inCat: true
+  },
+  {
+    sku: 26,
+    titulo: 'Smart TV BGH B5021UH6A LED 4K 50" 220V',
+    imagen: 'img/smarttv/3.webp',
+    precio: 59960,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Smart TV',
+    inCat: true
+  },
+  {
+    sku: 27,
+    titulo: 'Smart TV TCL S6500 Series L42S6500 LED Full HD 42" 220V',
+    imagen: 'img/smarttv/4.webp',
+    precio: 40999,
+    stock: 3,
+    cantidad: 0,
+    agregado: false,
+    categoria: 'Smart TV',
+    inCat: true
+  }
 ];
+
+//MEZCLAR LOS PRODUCTOS PARA QUE NO APAREZCAN EN ORDEN
+function shuffle(array) {
+  let currentIndex = array.length, randomIndex;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+  return array;
+}
+shuffle(productos);
 
 // AGREGAR TODOS LOS PRODUCTOS EN LA HOME
 const listadoProductos = document.getElementById("listadoProductos");
@@ -58,7 +334,9 @@ function agregarProductosEnHome() {
       contenedorProducto.className = "producto";
       contenedorProducto.id = producto.sku;
       contenedorProducto.innerHTML = `
-      <img class="producto__img" src="${producto.imagen}">
+      <div class="producto__img">
+        <img src="${producto.imagen}">
+      </div>
       <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
       <h4 class="producto__precio">$<span>${producto.precio.toFixed(2)}</span></h4>
       <div class="producto__agregar">AGREGAR AL CARRITO</div>
@@ -141,9 +419,7 @@ function botonCategoriaClicked(event) {
       ${event.target.textContent}
     `;
     listadoProductos.prepend(nombreCategoria);
-  } 
-  
-  localStorage.setItem("productos", JSON.stringify(productos));
+  }
 };
 
 function asignarBotonVerTodos() {
@@ -204,6 +480,10 @@ function buscadorTopSubmit(event) {
     listadoProductos.prepend(nombreCategoria);
   };
 
+  botonesCategoria.forEach((botonCategoria) => {
+    botonCategoria.children[0].classList.remove("active");
+  });
+
   listadoProductos.scrollIntoView();
   buscadorTop.children[0].value = "";
   
@@ -251,7 +531,9 @@ function agregarProductosEnCarrito() {
         nuevoProducto.className = "nuevoProducto";
         nuevoProducto.id = "agregado" + productoAgregado.sku;
         nuevoProducto.innerHTML = `
-          <img class="carritoImagen" src="${productoAgregado.imagen}">
+          <div class="carritoImagen">
+            <img src="${productoAgregado.imagen}">
+          </div>
           <div class="carritoTitulo">${productoAgregado.titulo}</div>
           <div class="carritoCantidad">
             <div class="menos">-</div>
