@@ -250,6 +250,14 @@ header .barracentral__buscador__search .botonbuscar:hover {
   border-bottom: 1px solid #e2e2e2;
   cursor: pointer;
   display: block;
+  color: inherit;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.hero__categorias__menu .cat a.active {
+  color: #fd571b;
+  font-weight: 600;
 }
 
 .hero__categorias__menu .cat:last-child a {
