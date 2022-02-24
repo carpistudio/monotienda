@@ -567,10 +567,10 @@ function asignarBotonesAgregar() {
 }
 asignarBotonesAgregar();
 
-const aumentarCantidad = () => { productoAgregado.cantidad = productoAgregado.cantidad + 1 };
-const reducirCantidad = () => { productoAgregado.cantidad = productoAgregado.cantidad - 1 };
-const aumentarStock = () => { productoAgregado.stock = productoAgregado.stock + 1 };
-const reducirStock = () => { productoAgregado.stock = productoAgregado.stock - 1 };
+const aumentarCantidad = () => { productoAgregado.cantidad++ };
+const reducirCantidad = () => { productoAgregado.cantidad-- };
+const aumentarStock = () => { productoAgregado.stock++ };
+const reducirStock = () => { productoAgregado.stock-- };
 
 function noTieneStock() {
   productos.forEach((productoAgregado) => {
@@ -653,9 +653,7 @@ function botonAgregarClicked(event) {
     productoAgregadoPadre = event.target.closest('.producto');
     productoAgregado = productos.find((buscarProducto) => buscarProducto.sku == productoAgregadoPadre.id);
 
-    if(productoAgregado.agregado == false) {
-        productoAgregado.agregado = true;
-    }
+    productoAgregado.agregado = productoAgregado.agregado || true;
 
     aumentarCantidad();
     reducirStock();
