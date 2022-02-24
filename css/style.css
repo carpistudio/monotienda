@@ -629,6 +629,15 @@ header .barracentral__buscador__search .botonbuscar:hover {
   color: #fd571b;
 }
 
+.swal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 @-webkit-keyframes shake {
   0%, 100% {
     -webkit-transform: translateX(0);
@@ -864,6 +873,11 @@ header .barracentral__buscador__search .botonbuscar:hover {
 
 #noQuedaStock .modal-content .modal-header h5 {
   font-size: 1.8rem;
+}
+
+.toastifyToast {
+  background: #fd571b;
+  font-size: 1.4rem;
 }
 
 .pasos {

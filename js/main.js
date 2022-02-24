@@ -665,6 +665,14 @@ function botonAgregarClicked(event) {
     botonesBorrarCarrito();
     siEstaVacio();
     localStorage.setItem("productos", JSON.stringify(productos));
+
+    Toastify({
+      text: "Producto agregado",
+      duration: 2000,
+      close: true,
+      className: "toastifyToast",
+      onClick: () => {botonCarritoClick()}
+      }).showToast();
 };
 
 function botonMasClicked(event) {
@@ -723,7 +731,30 @@ function botonBorrarClicked(event) {
 }
 
 let botonVaciar = document.getElementById("vaciarCarrito");
-botonVaciar.addEventListener('click', botonVaciarClicked);
+botonVaciar.addEventListener('click', popUpVaciarCarrito);
+
+function popUpVaciarCarrito() {
+  swal(`Tenés ${numerito} ${numerito > 1 ? "productos" : "producto"} en el carrito.`, {
+    title: "¿Estás seguro?",
+    icon: "warning",
+    buttons: {
+      cancel: "Cancelar",
+      aceptar: {
+        text: "Aceptar",
+        value: "aceptar",
+      },
+    },
+  })
+  .then((value) => {
+    switch (value) {
+   
+      case "aceptar":
+        numerito > 1 ? swal(`Carrito vaciado. Se eliminaron ${numerito} productos.`,{icon: "success",}) : swal(`Carrito vaciado. Se eliminó ${numerito} producto.`,{icon: "success",});
+        botonVaciarClicked();
+        break; 
+    }
+  });
+}
 
 function botonVaciarClicked() {
   productos.forEach((producto) => {
