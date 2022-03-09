@@ -1,9 +1,0 @@
-[
-    { "id": 1, "nombre": "Auriculares" },
-    { "id": 2, "nombre": "Calefacción" },
-    { "id": 3, "nombre": "Celulares" },
-    { "id": 4, "nombre": "Electrodomésticos" },
-    { "id": 5, "nombre": "Parlantes" },
-    { "id": 6, "nombre": "Smart TV" },
-    { "id": 999, "nombre": "Todos los productos" }
-  ]

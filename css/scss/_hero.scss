@@ -41,6 +41,11 @@
             }
 
             .cat {
+                &.oculta {
+                    opacity: 0;
+                }
+                opacity: 1;
+                transition: all 1s;
 
                 a {
                     font-size: 1.5rem;

@@ -244,6 +244,16 @@ header .barracentral__buscador__search .botonbuscar:hover {
   padding: 1rem 2rem;
 }
 
+.hero__categorias__menu .cat {
+  opacity: 1;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.hero__categorias__menu .cat.oculta {
+  opacity: 0;
+}
+
 .hero__categorias__menu .cat a {
   font-size: 1.5rem;
   padding: 1.4rem 2rem;

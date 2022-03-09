@@ -1,5 +1,6 @@
-productos = localStorage.getItem("productos");
-productos = JSON.parse(productos);
+carritoAgregados = localStorage.getItem("productos");
+carritoAgregados = JSON.parse(carritoAgregados);
+console.log(carritoAgregados);
 
 Number.prototype.toLocaleFixed = function(n) {
   return this.toLocaleString(undefined, {
@@ -10,27 +11,25 @@ Number.prototype.toLocaleFixed = function(n) {
 
 let checkoutCarrito = document.getElementById("checkoutCarrito");
 
-for (const producto of productos) {
-  if(producto.agregado == true) {
-      let checkoutProducto = document.createElement("div");
-      checkoutProducto.className = "checkoutProducto";
-      checkoutProducto.id = "checkoutProducto" + producto.sku;
-      checkoutProducto.innerHTML = `
-        <div class="checkoutProducto__imagen">
-          <img src="${producto.imagen}">
-        </div>
-        <div class="checkoutProducto__titulo">${producto.titulo}</div>
-        <div class="checkoutProducto__cantidad">${producto.cantidad}</div>
-        <div class="checkoutProducto__precio">$${(producto.precio * producto.cantidad).toLocaleFixed(2)}</div>
-      `;
-      checkoutCarrito.appendChild(checkoutProducto);
-  };
+for (const producto of carritoAgregados) {
+  let checkoutProducto = document.createElement("div");
+  checkoutProducto.className = "checkoutProducto";
+  checkoutProducto.id = "checkoutProducto" + producto.sku;
+  checkoutProducto.innerHTML = `
+    <div class="checkoutProducto__imagen">
+      <img src="${producto.imagen}">
+    </div>
+    <div class="checkoutProducto__titulo">${producto.titulo}</div>
+    <div class="checkoutProducto__cantidad">${producto.cantidad}</div>
+    <div class="checkoutProducto__precio">$${(producto.precio * producto.cantidad).toLocaleFixed(2)}</div>
+  `;
+  checkoutCarrito.appendChild(checkoutProducto);
 }
 
 let checkoutTotal = document.getElementById("checkoutTotal");
 let botonConfirmarPrecioTotal = document.getElementById("botonConfirmarPrecioTotal");
 
-precioTotal = productos.reduce((suma, productoAgregado) => suma + (productoAgregado.precio * productoAgregado.cantidad), 0);
+precioTotal = carritoAgregados.reduce((suma, productoAgregado) => suma + (productoAgregado.precio * productoAgregado.cantidad), 0);
 checkoutTotal.textContent = "$" + precioTotal.toLocaleFixed(2);
 botonConfirmarPrecioTotal.textContent = "$" + precioTotal.toLocaleFixed(2);
 
@@ -125,7 +124,7 @@ function finalizarCompra(event) {
   pasos__pago.classList.add("disabled");
   pasos__confirmacion.classList.remove("disabled");
 
-  for (const producto of productos) {
+  for (const producto of carritoAgregados) {
     if(producto.agregado == true) {
         producto.agregado = false;
         producto.stock = producto.stock + producto.cantidad;
