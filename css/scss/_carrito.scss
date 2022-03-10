@@ -15,6 +15,10 @@
     transition: opacity .3s linear;
     overflow: hidden;
 
+    @include movil {
+        max-width: 95%;
+    }
+
     &.cerrado {
         visibility: hidden;
         opacity: 0;

@@ -1,6 +1,5 @@
 carritoAgregados = localStorage.getItem("productos");
 carritoAgregados = JSON.parse(carritoAgregados);
-console.log(carritoAgregados);
 
 Number.prototype.toLocaleFixed = function(n) {
   return this.toLocaleString(undefined, {
@@ -124,13 +123,6 @@ function finalizarCompra(event) {
   pasos__pago.classList.add("disabled");
   pasos__confirmacion.classList.remove("disabled");
 
-  for (const producto of carritoAgregados) {
-    if(producto.agregado == true) {
-        producto.agregado = false;
-        producto.stock = producto.stock + producto.cantidad;
-        producto.cantidad = 0;
-
-        localStorage.setItem("productos", JSON.stringify(productos));
-    };
-  }
+  carritoAgregados = [];
+  localStorage.setItem("productos", JSON.stringify(carritoAgregados));
 }

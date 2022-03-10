@@ -1,11 +1,12 @@
 @import "scss/reset";
+@import "scss/media-queries";
 @import "scss/fonts";
+
 @import "scss/header";
+@import "scss/footer";
 
 @import "scss/hero";
 @import "scss/carrito";
 @import "scss/productos";
 
 @import "scss/checkout";
-
-@import "scss/footer";

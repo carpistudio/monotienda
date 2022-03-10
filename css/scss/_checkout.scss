@@ -12,6 +12,15 @@
     min-height: 100vh;
     border-top-right-radius: 3rem;
 
+    @include movil {
+        flex-direction: row;
+        justify-content: center;
+        min-height: 0px;
+        border-top-right-radius: 0;
+        height: auto;
+        padding: 2rem 0;
+    }
+
     > div {
         display: flex;
         justify-content: center;
@@ -71,6 +80,10 @@
     
     &__form{
 
+        @include movil {
+            flex-wrap: wrap;
+        }
+
         &.formaDePago {
             display: flex;
             justify-content: space-between;
@@ -86,6 +99,10 @@
                 border-radius: 1rem;
                 border: 1px solid #c4c4c4;
                 cursor: pointer;
+
+                @include movil {
+                    margin-bottom: 1rem;
+                }
 
                 input[type="radio"] {
                     position: absolute;
@@ -122,6 +139,10 @@
 
                 &:last-child {
                     padding-right: 0;
+                }
+
+                @include movil {
+                    padding: 0;
                 }
             }
         }

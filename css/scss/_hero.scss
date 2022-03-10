@@ -12,6 +12,10 @@
             position: sticky;
             top: 0;
             width: 100%;
+
+            @include movil {
+                position: relative;
+            }
         }
 
         &__menu {
@@ -32,20 +36,32 @@
             left: 0;
             box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1); 
 
+            @include movil {
+                position: relative;
+                max-height: none;
+                margin-bottom: 2rem;
+                overflow-y: hidden;
+            }
+
             .titulo {
                 font-size: 2rem;
                 font-weight: 600;
                 background: $primario;
                 color: white;
                 padding: 1rem 2rem;
+
+                @include movil {
+                    cursor: pointer;
+                }
             }
 
             .cat {
-                &.oculta {
-                    opacity: 0;
-                }
                 opacity: 1;
                 transition: all 1s;
+
+                @include movil {
+                    max-height: 0;
+                }
 
                 a {
                     font-size: 1.5rem;
@@ -72,6 +88,10 @@
 
     &__slider {
         padding: 2rem 3rem;
+
+        @include movil {
+            padding: 2rem 0;
+        }
 
         .slider {
             border-radius: 2rem;

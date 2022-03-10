@@ -6,10 +6,18 @@
     gap: 2rem;
     padding: 3rem;
     min-height: 70vh;
+
+    @include movil {
+        grid-template-columns: 1fr;
+    }
     
     .nombreCategoria {
         grid-area: 1 / 1 / span 1 / span 4;
         font-size: 2.8rem;
+
+        @include movil {
+            grid-area: 1 / 1 / span 1 / span 1;
+        }
     }
 
     .noHayCoincidencias h4 {
@@ -62,6 +70,11 @@
             font-weight: 600;
             margin-bottom: 0;
             letter-spacing: -1px;
+
+            @include movil {
+                padding: 0 3rem;
+                font-size: 2rem;
+            }
         }
 
         &__precio {
@@ -70,6 +83,10 @@
             font-weight: 700;
             margin-bottom: 0;
             text-align: center;
+
+            @include movil {
+                font-size: 3rem;
+            }
         }
 
         &__agregar {
@@ -83,6 +100,14 @@
             padding: .5rem 0;
             cursor: pointer;
             transition: all .2s;
+
+            @include movil {
+                padding: 1rem 0;
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
 
             &:hover {
                 color: white;
@@ -118,6 +143,12 @@
             cursor: pointer;
             transition: all .2s;
             display: flex;
+
+            @include movil {
+                padding: 2rem 0;
+                justify-content: center;
+                align-items: center;
+            }
 
             .fa-whatsapp {
                 display: flex;
@@ -162,4 +193,8 @@
 .toastifyToast {
     background: $primario;
     font-size: 1.4rem;
+
+    @include movil {
+        max-width: none;
+    }
 }

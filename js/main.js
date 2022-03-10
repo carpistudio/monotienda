@@ -228,7 +228,7 @@ function renderProductos(productos) {
 
         // Si está en el carrito, solo aumenta la cantidad
         if (estaEnCarrito) {
-            productoAgregado.cantidad++;
+            estaEnCarrito.cantidad++;
         // Si no está, lo agrega
         } else {
             productoAgregado.cantidad = 1;
@@ -441,6 +441,7 @@ function renderProductos(productos) {
     if(numerito > 0) {
         carritoAgregados = localStorage.getItem("productos");
         carritoAgregados = JSON.parse(carritoAgregados);
+        console.log(carritoAgregados);
 
         actualizarNumerito();
         agregarProductosEnCarrito();
@@ -453,4 +454,14 @@ function renderProductos(productos) {
         carritoAgregados = [];
     };
 
+}
+
+const tituloCategorias = document.querySelector("#listadoCategorias .titulo");
+const todasCategorias = document.querySelectorAll("#listadoCategorias .cat");
+tituloCategorias.addEventListener('click', abrirCategorias);
+
+function abrirCategorias() {
+    for(categoria of todasCategorias) {
+        categoria.style.maxHeight = categoria.style.maxHeight === '100px' ? '0' : '100px';
+    }
 }
