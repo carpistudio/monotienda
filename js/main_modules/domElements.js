@@ -9,4 +9,6 @@ export const carritoTotal = document.getElementById("carritoTotal"); // El lugar
 export const numeritoContenedor = document.getElementById("numerito"); // El contenedor del numerito encima del carrito
 export const botonesAgregar = document.querySelectorAll('.producto__agregar'); // Declara todos los botones de agregar al carrito
 export const botonVaciar = document.getElementById("vaciarCarrito"); // El botón de vaciar el carrito
-export let verTodos = document.querySelector(".verTodos");
+export let verTodos = document.querySelector(".verTodos"); // El botón de Ver todos que aparece con las búsquedas
+export const tituloCategorias = document.querySelector("#listadoCategorias .titulo"); // El título del widget de Categorías
+export const botonesWhatsApp = document.querySelectorAll('.producto__whatsapp'); // Selecciona todos los botones de WhatsApp

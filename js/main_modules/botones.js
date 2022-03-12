@@ -1,10 +1,9 @@
-import { toastify } from "./toastify.js";
-import { carritoAgregados } from "./functionsProductos.js";
-import { imprimirProductos } from "./functionsProductos.js";
-import { imprimirProductosEnCarrito } from "./functionsProductos.js";
-import { numerito } from "./functionsProductos.js";
+import { toastify } from "./toastify.js"; // Importa el toast
+import { carritoAgregados } from "./functionsProductos.js"; // Importa el array de Carrito
+import { imprimirProductos } from "./functionsProductos.js"; // Importa la función de imprimir productos en la home
+import { imprimirProductosEnCarrito } from "./functionsProductos.js"; // Importa la función de imprimir productos en el Carrito
+import { numerito } from "./functionsProductos.js"; // Importa el numerito para actualizarlo
 import * as DomElements from "./domElements.js"; // Importa todos los elementos del dom
-
 
 
 // Reasigna todos los botones de Agregar al carrito cada vez que cambian los productos que se muestran
@@ -36,7 +35,7 @@ function botonAgregarClicked(event, productos) {
     toastify("agregado"); // Dispara el toast
 }
 
-// Asigna los botones + y - de los productos del Carrito
+// Asigna los botones + y - de los productos del Carrito y su evento
 export function asignarBotonesMasMenos() {
     const botonesMas = document.querySelectorAll('.mas');
     const botonesMenos = document.querySelectorAll('.menos');
@@ -66,10 +65,11 @@ function botonMenosClicked(event) {
     
     if (productoAgregado.cantidad > 1) {
         productoAgregado.cantidad--; // Le resta uno
-        imprimirProductosEnCarrito();
+        imprimirProductosEnCarrito(); // Vuelve a imprimir los productos en el Carrito
     }
 }
 
+// Reasigna todos los botones de borrar producto en el Carrito
 export function asignarBotonesBorrar() {
     const botonesBorrar = document.querySelectorAll('.carritoBorrar i');
 
@@ -90,6 +90,7 @@ function botonBorrarClicked(event) {
     toastify("borrado"); // Dispara el toast
 }
 
+// Evento de Vaciar Carrito, dispara un SweetAlert
 DomElements.botonVaciar.addEventListener('click', popUpVaciarCarrito);
 function popUpVaciarCarrito() {
     swal(`Tenés ${numerito} ${numerito > 1 ? "productos" : "producto"} en el carrito.`, {
@@ -115,10 +116,13 @@ function popUpVaciarCarrito() {
 }
 
 function botonVaciarClicked() {
+    // Borra todos los productos del array del Carrito
     while (carritoAgregados.length) {
         carritoAgregados.pop();
     }
-    imprimirProductosEnCarrito();
+    // Imprime todos los productos en el Carrito
+    // Al estar vacío, con esta función lo detecta y lo oculta
+    imprimirProductosEnCarrito(); 
 }
 
 
@@ -147,7 +151,7 @@ export function estaVacioCheck() {
 }
 
 
-// Esta es la función para asignar el botón de Ver todos en las búsquedas
+// Asigna el botón de Ver todos en las búsquedas y en las categorías
 export function asignarBotonVerTodos(productos) {
     let verTodos = document.querySelector(".verTodos");
     verTodos.addEventListener("click", function() {
@@ -157,10 +161,19 @@ export function asignarBotonVerTodos(productos) {
 
 // Se imprimen todos los productos del array al hacer clic en Ver todos
 function verTodosClicked(productos) {
-    DomElements.listadoProductos.scrollIntoView();
-    imprimirProductos(DomElements.listadoProductos, productos);
+    DomElements.listadoProductos.scrollIntoView(); // Scrollea hasta los productos
+    imprimirProductos(DomElements.listadoProductos, productos); // Imprime todo el array fetcheado
     
     DomElements.botonesCategorias.forEach((botonCategoria) => {
-      botonCategoria.children[0].classList.remove("active");
+      botonCategoria.children[0].classList.remove("active"); // Quita las classes active que puedan tener las categorías
     });
 };
+
+
+DomElements.tituloCategorias.addEventListener('click', abrirCategorias);
+
+function abrirCategorias() {
+    for(let categoria of DomElements.botonesCategorias) {
+        categoria.style.maxHeight = categoria.style.maxHeight === '100px' ? '0' : '100px';
+    }
+}

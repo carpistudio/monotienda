@@ -1,6 +1,6 @@
-import { toastify } from "./toastify.js";
 import * as Botones from "./botones.js"; // Importa todas las funciones de los botones
 import * as DomElements from "./domElements.js"; // Importa todos los elementos del dom
+import * as WhatsApp from "./whatsapp.js";
 
 // Setea los precios con los decimales separados por coma, en lugar de por punto
 export function toLocaleFixed (num) {
@@ -34,6 +34,7 @@ export function imprimirProductos(listadoProductos, productos) {
     }
 
     Botones.asignarBotonesAgregar(productos); // Reasigna todos los botones de Agregar al carrito
+    WhatsApp.asignarBotonesWhatsApp(productos);
 }
 
 export let carritoAgregados = []; // Declara el array de los productos agregados al Carrito
@@ -63,10 +64,10 @@ export function imprimirProductosEnCarrito() {
 
   Botones.asignarBotonesMasMenos(); // Reasigna los botones de + y -
   Botones.asignarBotonesBorrar(); // Reasigna los botones de borrar producto
-  actualizarPrecioTotal();
-  actualizarNumerito();
-  Botones.estaVacioCheck();
-  localStorage.setItem("productos", JSON.stringify(carritoAgregados));
+  actualizarPrecioTotal(); // Actualiza el precio total basado en los productos acutales
+  actualizarNumerito(); // Actualiza el numerito (cantidades de cada producto sumadas)
+  Botones.estaVacioCheck(); // Chequea si el Carrito quedó vacío para ocultarlo
+  localStorage.setItem("productos", JSON.stringify(carritoAgregados)); // Guarda los productos en el LS
 }
 
 // Actualiza el precio total que aparece en el carrito
