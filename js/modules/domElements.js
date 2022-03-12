@@ -1,0 +1,12 @@
+export const listadoProductos = document.getElementById("listadoProductos"); // Donde se van a mostrar los productos en la home
+export const carritoProductos = document.getElementById("carritoProductos"); // Donde se van a mostrar los productos en el carrito
+export const buscadorTop = document.getElementById("buscadorTop"); // El buscador para las queries de búsqueda
+export const botonesCategorias = document.querySelectorAll(".cat"); // Todas las categorías cargadas
+export const botonCarrito = document.getElementById("botonCarrito"); // El botón flotante para abrir el carrito
+export const cerrarCarrito = document.getElementById("cerrarCarrito"); // El botón para cerrar el carrito (X)
+export const carrito = document.getElementById("carrito"); // El carrito abierto
+export const carritoTotal = document.getElementById("carritoTotal"); // El lugar donde va el precio total en el carrito
+export const numeritoContenedor = document.getElementById("numerito"); // El contenedor del numerito encima del carrito
+export const botonesAgregar = document.querySelectorAll('.producto__agregar'); // Declara todos los botones de agregar al carrito
+export const botonVaciar = document.getElementById("vaciarCarrito"); // El botón de vaciar el carrito
+export let verTodos = document.querySelector(".verTodos");
