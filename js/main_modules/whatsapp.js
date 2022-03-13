@@ -1,17 +1,17 @@
 export function asignarBotonesWhatsApp(productos) {
-    const botonesWhatsApp = document.querySelectorAll('.producto__whatsapp'); // Busca todos los botones de WhatsApp en el documento
+    const botonesWhatsApp = document.querySelectorAll('.producto__whatsapp');
     botonesWhatsApp.forEach((botonWhatsApp) => {
         botonWhatsApp.addEventListener('click', function() {
-            botonWhatsAppClicked(event, productos); // y les asigna la función
+            botonWhatsAppClicked(event, productos);
       }, false);
     });
 }
 
 // Se ejecuta al hacer click en un botón de WhatsApp
 function botonWhatsAppClicked(event, productos) {
-  const productoAgregadoID = event.target.closest('.producto').id; // Busca el div del producto
+  const productoAgregadoID = event.target.closest('.producto').id;
   const productoAgregado = productos.find(function(buscarProducto) {
-    return buscarProducto.sku == productoAgregadoID; // y lo busca en el array de productos fetcheado
+    return buscarProducto.sku == productoAgregadoID;
   });
 
   // Abre un link a WhatsApp, con un mensaje con la info del producto
@@ -20,4 +20,4 @@ function botonWhatsAppClicked(event, productos) {
     "_blank"
   )
 
-} 
+}

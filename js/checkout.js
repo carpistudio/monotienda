@@ -1,6 +1,6 @@
-import * as FunctionsCheckout from "./checkout_modules/functionsCheckout.js"; // Importa las funciones de Checkout
+import * as FunctionsCheckout from "./checkout_modules/functionsCheckout.js";
 
-let carritoAgregados = localStorage.getItem("productos"); // Obtiene el Carrito desde el LS
+let carritoAgregados = localStorage.getItem("productos");
 carritoAgregados = JSON.parse(carritoAgregados);
 
 FunctionsCheckout.imprimirProductos(carritoAgregados); // Imprime todos los productos en el Carrito lateral

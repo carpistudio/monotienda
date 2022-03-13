@@ -1,9 +1,9 @@
-import { toastify } from "./toastify.js"; // Importa el toast
-import { carritoAgregados } from "./functionsProductos.js"; // Importa el array de Carrito
-import { imprimirProductos } from "./functionsProductos.js"; // Importa la función de imprimir productos en la home
-import { imprimirProductosEnCarrito } from "./functionsProductos.js"; // Importa la función de imprimir productos en el Carrito
-import { numerito } from "./functionsProductos.js"; // Importa el numerito para actualizarlo
-import * as DomElements from "./domElements.js"; // Importa todos los elementos del dom
+import { toastify } from "./toastify.js";
+import { carritoAgregados } from "./functionsProductos.js";
+import { imprimirProductos } from "./functionsProductos.js";
+import { imprimirProductosEnCarrito } from "./functionsProductos.js";
+import { numerito } from "./functionsProductos.js";
+import * as DomElements from "./domElements.js";
 
 
 // Reasigna todos los botones de Agregar al carrito cada vez que cambian los productos que se muestran
@@ -16,14 +16,13 @@ export function asignarBotonesAgregar(productos) {
     });
   };
   
-// Se ejecuta al clickear un botón de Agregar al carrito
 function botonAgregarClicked(event, productos) {
-    const productoAgregadoPadre = event.target.closest('.producto'); // Busca el div del producto
-    const productoAgregado = productos.find((buscarProducto) => buscarProducto.sku == productoAgregadoPadre.id); // y lo busca por SKU en el array fetcheado
+    const productoAgregadoPadre = event.target.closest('.producto');
+    // Busca el producto por SKU en el array fetcheado
+    const productoAgregado = productos.find((buscarProducto) => buscarProducto.sku == productoAgregadoPadre.id);
 
     // Lo busca en el array de productos en el Carrito
     const estaEnCarrito = carritoAgregados.find((buscarSiEsta) => buscarSiEsta.sku == productoAgregadoPadre.id);
-    
     if (estaEnCarrito) {
         estaEnCarrito.cantidad++; // Si está en el Carrito, solo aumenta la cantidad
     } else {
@@ -31,8 +30,8 @@ function botonAgregarClicked(event, productos) {
         carritoAgregados.push(productoAgregado); // y lo agrega
     }
 
-    imprimirProductosEnCarrito(); // Imprime los productos en el div de Carrito
-    toastify("agregado"); // Dispara el toast
+    imprimirProductosEnCarrito();
+    toastify("agregado");
 }
 
 // Asigna los botones + y - de los productos del Carrito y su evento
@@ -49,23 +48,23 @@ export function asignarBotonesMasMenos() {
     });
 };
 
-// Al hacer click en un botón + (más)
 function botonMasClicked(event) {
-    const productoAgregadoPadre = event.target.closest('.nuevoProducto'); // Busca el div del producto
-    const productoAgregado = carritoAgregados.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id); // y lo busca en el array del carrito
+    const productoAgregadoPadre = event.target.closest('.nuevoProducto');
+    // Busca el producto en el array fetcheado
+    const productoAgregado = carritoAgregados.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id);
   
-    productoAgregado.cantidad++; // Le suma uno
-    imprimirProductosEnCarrito(); // Vuelve a imprimir los productos en el Carrito
+    productoAgregado.cantidad++;
+    imprimirProductosEnCarrito();
 }
 
-// Al hacer click en un botón - (menos)
 function botonMenosClicked(event) {
-    const productoAgregadoPadre = event.target.closest('.nuevoProducto'); // Busca el div del producto
-    const productoAgregado = carritoAgregados.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id); // y lo busca en el array del carrito
+    const productoAgregadoPadre = event.target.closest('.nuevoProducto');
+    // Busca el producto en el array fetcheado
+    const productoAgregado = carritoAgregados.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id);
     
     if (productoAgregado.cantidad > 1) {
-        productoAgregado.cantidad--; // Le resta uno
-        imprimirProductosEnCarrito(); // Vuelve a imprimir los productos en el Carrito
+        productoAgregado.cantidad--;
+        imprimirProductosEnCarrito();
     }
 }
 
@@ -79,15 +78,16 @@ export function asignarBotonesBorrar() {
 };
 
 function botonBorrarClicked(event) {
-    const productoAgregadoPadre = event.target.closest('.nuevoProducto'); // Busca el div del producto
-    const productoAgregado = carritoAgregados.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id); // y lo busca en el array del carrito
+    const productoAgregadoPadre = event.target.closest('.nuevoProducto');
+    // Busca el producto en el array fetcheado
+    const productoAgregado = carritoAgregados.find((buscarProducto) => "agregado" + buscarProducto.sku == productoAgregadoPadre.id);
 
     const index = carritoAgregados.indexOf(productoAgregado); // Busca el index de este producto en el array
     if (index > -1) {
-        carritoAgregados.splice(index, 1); // y lo elimina del array
+        carritoAgregados.splice(index, 1); // y lo elimina
     }
-    imprimirProductosEnCarrito(); // Vuelve a imprimir los productos en el Carrito
-    toastify("borrado"); // Dispara el toast
+    imprimirProductosEnCarrito();
+    toastify("borrado");
 }
 
 // Evento de Vaciar Carrito, dispara un SweetAlert
@@ -120,8 +120,6 @@ function botonVaciarClicked() {
     while (carritoAgregados.length) {
         carritoAgregados.pop();
     }
-    // Imprime todos los productos en el Carrito
-    // Al estar vacío, con esta función lo detecta y lo oculta
     imprimirProductosEnCarrito(); 
 }
 
@@ -159,10 +157,10 @@ export function asignarBotonVerTodos(productos) {
     }, false);
 };
 
-// Se imprimen todos los productos del array al hacer clic en Ver todos
+// Se imprimen todos los productos del array fetcheado
 function verTodosClicked(productos) {
-    DomElements.listadoProductos.scrollIntoView(); // Scrollea hasta los productos
-    imprimirProductos(DomElements.listadoProductos, productos); // Imprime todo el array fetcheado
+    DomElements.listadoProductos.scrollIntoView();
+    imprimirProductos(DomElements.listadoProductos, productos);
     
     DomElements.botonesCategorias.forEach((botonCategoria) => {
       botonCategoria.children[0].classList.remove("active"); // Quita las classes active que puedan tener las categorías

@@ -1,5 +1,5 @@
-import * as Botones from "./botones.js"; // Importa todas las funciones de los botones
-import * as DomElements from "./domElements.js"; // Importa todos los elementos del dom
+import * as Botones from "./botones.js";
+import * as DomElements from "./domElements.js";
 import * as WhatsApp from "./whatsapp.js";
 
 // Setea los precios con los decimales separados por coma, en lugar de por punto
@@ -19,7 +19,7 @@ export function imprimirProductos(listadoProductos, productos) {
         contenedorProducto.id = producto.sku;
         contenedorProducto.innerHTML = `
         <div class="producto__img">
-            <img src="${producto.imagen}">
+            <img src="${producto.imagen}" alt="${producto.titulo}">
         </div>
         <h4 class="producto__titulo">${producto.titulo.toUpperCase()}</h4>
         <h4 class="producto__precio">$<span>${toLocaleFixed(producto.precio)}</span></h4>
@@ -33,7 +33,7 @@ export function imprimirProductos(listadoProductos, productos) {
         listadoProductos.appendChild(contenedorProducto);
     }
 
-    Botones.asignarBotonesAgregar(productos); // Reasigna todos los botones de Agregar al carrito
+    Botones.asignarBotonesAgregar(productos);
     WhatsApp.asignarBotonesWhatsApp(productos);
 }
 
@@ -41,14 +41,14 @@ export let carritoAgregados = []; // Declara el array de los productos agregados
 
 // Imprime los productos en el Carrito
 export function imprimirProductosEnCarrito() {
-    carritoProductos.innerHTML = ""; // Primero vacía el div
-    carritoAgregados.forEach((productoAgregado) => { // Y luego imprime todos los que hay con los cambios
+    carritoProductos.innerHTML = "";
+    carritoAgregados.forEach((productoAgregado) => {
         let nuevoProducto = document.createElement("div");
         nuevoProducto.className = "nuevoProducto";
         nuevoProducto.id = "agregado" + productoAgregado.sku;
         nuevoProducto.innerHTML = `
             <div class="carritoImagen">
-            <img src="${productoAgregado.imagen}">
+            <img src="${productoAgregado.imagen}" alt="${productoAgregado.titulo}">
             </div>
             <div class="carritoTitulo">${productoAgregado.titulo}</div>
             <div class="carritoCantidad">
@@ -62,36 +62,34 @@ export function imprimirProductosEnCarrito() {
         carritoProductos.appendChild(nuevoProducto);
   });
 
-  Botones.asignarBotonesMasMenos(); // Reasigna los botones de + y -
-  Botones.asignarBotonesBorrar(); // Reasigna los botones de borrar producto
-  actualizarPrecioTotal(); // Actualiza el precio total basado en los productos acutales
-  actualizarNumerito(); // Actualiza el numerito (cantidades de cada producto sumadas)
+  Botones.asignarBotonesMasMenos();
+  Botones.asignarBotonesBorrar();
+  actualizarPrecioTotal();
+  actualizarNumerito();
   Botones.estaVacioCheck(); // Chequea si el Carrito quedó vacío para ocultarlo
-  localStorage.setItem("productos", JSON.stringify(carritoAgregados)); // Guarda los productos en el LS
+  localStorage.setItem("productos", JSON.stringify(carritoAgregados));
 }
 
-// Actualiza el precio total que aparece en el carrito
 function actualizarPrecioTotal() {
-
     // Suma todos los precios de los productos en el array multiplicado por sus cantidades
     const precioTotal = carritoAgregados.reduce((suma, producto) => suma + (producto.precio * producto.cantidad), 0); 
-    carritoTotal.textContent = toLocaleFixed(precioTotal); // y lo imprime
+    carritoTotal.textContent = toLocaleFixed(precioTotal);
     
-    localStorage.setItem("precioTotal", precioTotal); // Luego lo guarda en el LS
+    localStorage.setItem("precioTotal", precioTotal);
 }
 
 export let numerito = 0;
 function actualizarNumerito() {
-    // Se agregan y quitan clases para generar la animación en el numerito
+    // Se agregan y quitan clases para generar la animación CSS
     DomElements.numeritoContenedor.classList.remove("shake");
     DomElements.numeritoContenedor.offsetWidth;
     DomElements.numeritoContenedor.classList.add("shake");
 
     // Suma todas las cantidades de los productos agregados en el array del carrito
     numerito = carritoAgregados.reduce((suma, productoAgregado) => suma + parseInt(productoAgregado.cantidad), 0);
-    DomElements.numeritoContenedor.textContent = numerito; // y lo imprime
+    DomElements.numeritoContenedor.textContent = numerito;
 
-    localStorage.setItem("numerito", numerito); // Luego lo guarda en el LS
+    localStorage.setItem("numerito", numerito);
 };
 
 // Obtiene el numerito desde el LS

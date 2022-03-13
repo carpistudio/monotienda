@@ -1,20 +1,19 @@
-import { imprimirProductos } from "./functionsProductos.js"; // Importa la función de imprimir productos en la home
-import { listadoProductos } from "./domElements.js"; // Importa el div de los productos en la home
-import { asignarBotonVerTodos } from "./botones.js"; // Importa la función de asignar el botón de Ver todos
-import { botonesCategorias } from "./domElements.js"; // Importa los botones de las categorías
+import { imprimirProductos } from "./functionsProductos.js";
+import { listadoProductos } from "./domElements.js";
+import { asignarBotonVerTodos } from "./botones.js";
+import { botonesCategorias } from "./domElements.js";
 
 // Función al enviar el formulario de búsqueda
 export function buscar(event, productos) {
     event.preventDefault();
-    listadoProductos.scrollIntoView(); // Scrollea hasta los productos
-    let busqueda = buscadorTop.children[0].value; // Declara una variable con el valor de la búsqueda
-    const result = productos.filter( // y la filtra en los productos fetcheados
+    listadoProductos.scrollIntoView();
+    let busqueda = buscadorTop.children[0].value;
+    const result = productos.filter(
         producto =>
         producto.categoria.toLowerCase().includes(busqueda.toLowerCase()) ||
         producto.titulo.toLowerCase().includes(busqueda.toLowerCase())
     );
-
-    imprimirProductos(listadoProductos, result); // Imprime los productos que coincidan en la home
+    imprimirProductos(listadoProductos, result);
 
     // Si no hay resultados, muestra el mensaje de error
     if(result.length === 0 || busqueda === "" || busqueda === " ") {
@@ -37,22 +36,20 @@ export function buscar(event, productos) {
         listadoProductos.prepend(tituloBusqueda);
     }
 
-    asignarBotonVerTodos(productos); // Reasigna el botón de Ver todos los productos
+    asignarBotonVerTodos(productos);
     buscadorTop.children[0].value = ""; // Se vacía el input del buscador
 }
 
 // Función al hacer click en alguna categoría
 export function categoriaClick(event, productos) {
-    listadoProductos.scrollIntoView(); // Scrollea hasta los productos
+    listadoProductos.scrollIntoView();
     botonesCategorias.forEach((botonCategoria) => {
-        botonCategoria.children[0].classList.remove("active"); // Elimina todos los active que pueda haber en otras categorías
+        botonCategoria.children[0].classList.remove("active");
     });
-    event.target.classList.add("active"); // Y se lo agrega a la clickeada
+    event.target.classList.add("active");
     
-    // Filtra la categoría en el array de productos
     const result = productos.filter(producto => producto.categoria === event.target.textContent);
-
-    imprimirProductos(listadoProductos, result); // Imprime los productos de esa categoría
+    imprimirProductos(listadoProductos, result);
 
     // Si es la categoría de Todos, solamente imprime nuevamente todos los productos fetcheados
     if(event.target.textContent === "Todos los productos") {
@@ -77,5 +74,5 @@ export function categoriaClick(event, productos) {
         listadoProductos.prepend(nombreCategoria);
     }
 
-    asignarBotonVerTodos(productos); // Reasigna el botón de Ver todos los productos
+    asignarBotonVerTodos(productos);
 }
