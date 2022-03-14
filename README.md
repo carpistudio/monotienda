@@ -1,5 +1,6 @@
 # Monotienda
 ## Proyecto Final - JavaScript - Coderhouse
+
 ***
 Este es el proyecto final del curso de JavaScript de Coderhouse, el segundo curso de la carrera de Desarrollo Full Stack.
 ---
