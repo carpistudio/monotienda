@@ -39,15 +39,25 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.4rem;
+        font-size: 2.4rem;
+        gap: 1rem;
 
         a {
             cursor: pointer;
             transition: color .3s;
+            color: rgb(109, 109, 109);
 
             &:hover {
                 color: $primario !important;
             }
         }
+    }
+
+    .footerCarpi {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: rgb(109, 109, 109);
     }
 }
