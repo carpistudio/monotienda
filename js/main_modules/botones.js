@@ -125,17 +125,15 @@ function botonVaciarClicked() {
 
 
 // Eventos de abrir y cerrar el carrito
-DomElements.botonCarrito.addEventListener('click', botonCarritoClick);
-DomElements.cerrarCarrito.addEventListener('click', cerrarCarritoClick);
-
-function botonCarritoClick() {
+DomElements.botonCarrito.addEventListener("click", function(){
     DomElements.carrito.classList.remove("cerrado");
     DomElements.botonCarrito.classList.add("cerrado");
-}
-function cerrarCarritoClick() {
+}); 
+
+DomElements.cerrarCarrito.addEventListener("click", function(){
     DomElements.carrito.classList.add("cerrado");
     DomElements.botonCarrito.classList.remove("cerrado");
-}
+});
 
 // Ocultar el div de Carrito si está vacío después de alguna acción
 export function estaVacioCheck() {
@@ -167,11 +165,10 @@ function verTodosClicked(productos) {
     });
 };
 
-
-DomElements.tituloCategorias.addEventListener('click', abrirCategorias);
-
-function abrirCategorias() {
-    for(let categoria of DomElements.botonesCategorias) {
-        categoria.style.maxHeight = categoria.style.maxHeight === '100px' ? '0' : '100px';
+DomElements.tituloCategorias.addEventListener("click", function(){
+    if ((screen.width < 577)) {
+        for(let categoria of DomElements.botonesCategorias) {
+            categoria.style.maxHeight = categoria.style.maxHeight === "100px" ? "0px" : "100px";
+        }
     }
-}
+}); 

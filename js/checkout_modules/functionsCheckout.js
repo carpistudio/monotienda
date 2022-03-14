@@ -34,14 +34,13 @@ export function cargarPrecioTotal(carritoAgregados) {
 }
 
 // Al hacer clic en checkbox, abre la segunda parte del form
-DomElements.enviarADireccionDiferente.addEventListener("input", aDireccionDiferente);
-function aDireccionDiferente() {
+DomElements.enviarADireccionDiferente.addEventListener("click", function(){
   if (DomElements.enviarADireccionDiferente.checked) { 
     DomElements.direccionDiferente.classList.remove("cerrado"); // Si está marcado, lo muestra
   } else {
     DomElements.direccionDiferente.classList.add("cerrado"); // si no, lo oculta
   }
-}
+}); 
 
 formTusDetalles.addEventListener("submit", submitFormTusDetalles);
 function submitFormTusDetalles(event) {

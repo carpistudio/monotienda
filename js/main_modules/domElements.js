@@ -9,6 +9,6 @@ export const carritoTotal = document.getElementById("carritoTotal");
 export const numeritoContenedor = document.getElementById("numerito");
 export const botonesAgregar = document.querySelectorAll('.producto__agregar');
 export const botonVaciar = document.getElementById("vaciarCarrito");
-export let verTodos = document.querySelector(".verTodos");
+export const verTodos = document.querySelector(".verTodos");
 export const tituloCategorias = document.querySelector("#listadoCategorias .titulo");
 export const botonesWhatsApp = document.querySelectorAll('.producto__whatsapp');
