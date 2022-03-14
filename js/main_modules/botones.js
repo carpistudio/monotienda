@@ -26,7 +26,7 @@ function botonAgregarClicked(event, productos) {
     if (estaEnCarrito) {
         estaEnCarrito.cantidad++; // Si está en el Carrito, solo aumenta la cantidad
     } else {
-        productoAgregado.cantidad = 1; // Si no está, le setea cantidad
+        Object.assign(productoAgregado, {cantidad: 1}); // Si no está, le setea cantidad
         carritoAgregados.push(productoAgregado); // y lo agrega
     }
 
